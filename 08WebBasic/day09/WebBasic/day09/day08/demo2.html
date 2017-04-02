@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>事件</title>
+		<script>
+			function f1() {
+				alert(1);
+			}
+			
+			//页面加载事件，在页面加载后触发
+			window.onload = function(){
+				//3.后绑定事件(升级版)
+				var btn3 = document.getElementById("btn3");
+				btn3.ondblclick = function(){
+					alert(3);
+				}
+				
+				var btn5 = document.getElementById("btn5");
+				btn5.onclick = function(e) {
+					//js在调用后绑定的函数时，会自动
+					//传入event，该参数存在arguments[0]上。
+					console.log(arguments[0]);
+					//该函数的第一个参数将自动接收arguments[0]。
+					alert(e.clientX+","+e.clientY);
+				}
+			}
+			
+			//声明参数e接收传入的事件对象event
+			function f4(e) {
+				console.log(e);
+				alert(e.clientX+","+e.clientY);
+			}
+		</script>
+	</head>
+	<body>
+		<!-- 1.直接定义事件 -->
+		<input type="button" value="按钮1"
+			ondblclick="f1();"/>
+		<input type="button" value="按钮2"
+			id="btn2"/>
+		<input type="button" value="按钮3"
+			id="btn3"/>
+		
+		<input type="button" value="按钮4"
+			id="btn4" onclick="f4(event);"/>
+		<input type="button" value="按钮5"
+			id="btn5"/>
+		
+		<script>
+			//2.页面加载后，给按钮后绑定事件
+			var btn2 = document.getElementById("btn2");
+			btn2.ondblclick = function(){
+				alert(2);
+			};
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

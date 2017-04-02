@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>发送消息</title>
+		<style>
+			div {
+				border: 1px solid #ccc;
+				width: 200px;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+			}
+		</style>
+		<script>
+			var id = null;
+			function send() {
+				var div = document.getElementById("msg");
+				div.innerHTML = "正在发送...";
+				id = setTimeout(function(){
+					div.innerHTML = "已发送";
+				},2000);
+			}
+			function cancel() {
+				clearTimeout(id);
+				var div = document.getElementById("msg");
+				div.innerHTML = "已取消";
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<input type="button" value="发送"
+				onclick="send();"/>
+			<input type="button" value="取消"
+				onclick="cancel();"/>
+		</p>
+		<div id="msg"></div>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

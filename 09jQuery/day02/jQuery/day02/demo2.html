@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>事件</title>
+		<script src="../js/jquery-1.11.1.js"></script>
+		<script>
+			//1.js的页面加载事件
+			//只能写一次，若写多次则后者会覆盖前者
+			//window.onload = function(){}
+			
+			//2.jQuery的页面加载事件
+			//可以写多次，都有效
+			$(function(){
+				$(":button:first").click(function(e){
+					console.log(arguments[0]);
+					alert(e.pageX+","+e.pageY);
+					//取消冒泡
+					e.stopPropagation();
+				});
+				$("p:first").click(function(){
+					alert("p");
+				});
+				$("p:eq(1)").click(function(e){
+					var obj = e.target;
+					console.log(obj);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<p>
+			<input type="button" value="按钮1"/>
+		</p>
+		<p>
+			<input type="button" value="按钮2"/>
+			<input type="button" value="按钮3"/>
+			<input type="button" value="按钮4"/>
+		</p>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

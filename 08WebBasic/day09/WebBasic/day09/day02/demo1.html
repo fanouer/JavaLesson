@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>表单</title>
+	</head>
+	<body>
+		<!-- 
+		1.表单元素：
+			用来圈定数据提交的范围，即只有
+			在此元素内的数据可以提交给服务器。
+		action：声明提交的目标。
+		method/enctype：将来再讲。
+		-->
+		<form action="http://www.tmooc.cn">
+			<!-- 
+			2.表单控件：
+				用来让用户输入信息。
+			按照标签名可以划分为2大类：
+				input标签(9)：
+					- 文本框、密码框
+					- 单选框、多选框
+					- 文件框、隐藏框
+					- 提交、重置、普通按钮
+					上述内容都是input标签，
+					它们通过type属性加以区别。
+				其他标签(3)：
+					- label
+					- 下拉选
+					- 文本域
+			-->
+			<!-- 2.1 input标签 -->
+			<!-- 
+			文本框、密码框：
+				value：用来设置默认值；
+				maxlength：用来设置限制的长度；
+				readonly：用来设置只读；
+			-->
+			<p>
+				账号：<input type="text" 
+					value="tarena" maxlength="10"/>
+			</p>
+			<p>
+				密码：<input type="password" readonly/>
+			</p>
+			<!-- 
+			单选框：
+				name：设置单选框的名字，同名的框是一组，
+					它们之间可以互斥(有我没你)。
+				value：将来再讲。
+				checked：设置默认选中。
+			-->
+			<p>
+				性别：
+				<input type="radio" name="sex"/>男
+				<input type="radio" name="sex" checked/>女
+			</p>
+			<!-- 
+			多选框：
+				name/value：将来再讲。
+				checked：设置默认选中。
+			-->
+			<p>
+				兴趣：
+				<input type="checkbox"/>篮球
+				<input type="checkbox" checked/>足球
+				<input type="checkbox" checked/>桌球
+			</p>
+			<p>
+				上传：<input type="file"/>
+			</p>
+			<!-- 
+			隐藏框：
+				用来传递一些不希望被用户看见的密码数据；
+				该数据通过value提前设置。
+			-->
+			<p>
+				<input type="hidden" value="123"/>
+			</p>
+			<!-- 
+			按钮：
+				submit：触发表单的提交行为。
+				reset：将表单中的数据重置为初始态。
+				button：其功能需要通过js自定义。
+			-->
+			<p>
+				<input type="submit" value="注册"/>
+				<input type="reset" value="重置"/>
+				<input type="button" value="取消"
+					onclick="confirm('确定要这样吗？')"/>
+			</p>
+			<!-- 2.2 其他标签 -->
+			<!-- 
+			label：
+				label标签用来管理表单中的文本；
+				它可以将文本与某个框绑定在一起，
+				使得用户点击此文本时，就相当于
+				点击了对应的那个框。
+				即：它可以增加框的受力面积。
+			-->
+			<p>
+				<input type="checkbox" id="c1"/>
+				<label for="c1">我已阅读并愿意遵守此协议</label>
+			</p>
+			<!-- 
+			下拉选：
+				selected：设置默认选中。
+				value：以后再讲。
+			-->
+			<p>
+				城市：
+				<select>
+					<option>北京</option>
+					<option>上海</option>
+					<option selected>广州</option>
+					<option>深圳</option>
+				</select>
+			</p>
+			<!-- 
+			文本域：
+				cols：设置宽度
+				rows：设置高度
+				标签间的内容就是默认值
+			-->
+			<p>
+				说明：
+				<textarea cols="30" rows="6">北京市海淀区</textarea>
+			</p>
+		</form>
+	</body>
+</html>
+
+
+
+
+
+
+

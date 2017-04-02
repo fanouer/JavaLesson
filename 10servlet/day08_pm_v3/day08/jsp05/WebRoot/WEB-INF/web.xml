@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+  	<servlet-name>create</servlet-name>
+  	<servlet-class>web.CreateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>create</servlet-name>
+  	<url-pattern>/demo/create</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>view</servlet-name>
+  	<servlet-class>web.ViewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>view</servlet-name>
+  	<url-pattern>/demo/view</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>modify</servlet-name>
+  	<servlet-class>web.ModifyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>modify</servlet-name>
+  	<url-pattern>/demo/modify</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>duang</servlet-name>
+  	<servlet-class>web.DuangServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>duang</servlet-name>
+  	<url-pattern>/dd/duang</url-pattern>
+  </servlet-mapping>
+</web-app>
+
+
+
+
+
+

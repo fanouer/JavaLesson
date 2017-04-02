@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>  <!DOCTYPE configuration             PUBLIC "-//ibatis.apache.org//DTD Config 3.0//EN"            "http://ibatis.apache.org/dtd/ibatis-3-config.dtd">
+<configuration>
+	<environments default="environment">
+		<environment id="environment">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" 
+					value="oracle.jdbc.OracleDriver" />
+				<property name="url"
+					value="jdbc:oracle:thin:@192.168.201.211:1521:orcl"/>
+				<property name="username" value="openlab" />
+				<property name="password" value="open123" />
+			</dataSource>
+		</environment>
+	</environments>
+	<!-- 加载SQL定义文件 -->
+	<mappers>
+		<mapper resource="org/tedu/entity/EmpMapper.xml" />
+		<mapper resource="org/tedu/entity/AdminMapper.xml" />
+	</mappers>
+</configuration> 
+

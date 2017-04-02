@@ -1,0 +1,16 @@
+#Spring整合MyBatis
+##整合目的
+ 实现程序组件解耦。
+请求-->Controller-->Service-->Dao-->db
+需要将MyBatis实现的Dao对象纳入Spring容器。
+这样才能够实现IOC注入。 
+##利用Mybatis自动生成Dao实现(推荐)
+-SqlSessionFactoryBean(推荐)
+-MapperFactoryBean
+-MapperScannerConfigurer(推荐)
+##编写Mybatis的Dao实现
+-自动扫描，将编写实现类扫描到Spring容器
+-使用SqlSessionTemplate编写Dao实现
+
+
+

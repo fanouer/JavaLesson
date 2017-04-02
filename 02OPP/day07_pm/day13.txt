@@ -1,0 +1,178 @@
+final 最终
+final 修饰“变量”：可以初始化，不能再修改
+  是指这个“变量的值”不能再修改了！
+  1） final 局部变量
+  2） final 方法参数
+  3） final 属性
+
+  final int[] ary = {3,4};
+  ary[0] = 6;
+  System.out.println(ary[0]);
+  如上代码运行结果：
+  A.编译错误 B.运行异常 C.6 D.3
+
+final 方法：不能被子类在重写
+final 类：不能再被继承了。
+ 
+static 
+  static 修饰成员变量：静态变量
+   属性类的变量，在软件运行期间只有一份
+   全体类的对象共享的一份变量
+   用类名访问
+  
+  static 方法: 静态方法
+   属于类的方法，用于类名调用。
+   静态方法中没有this！不能范围对象的
+   属性和方法！
+
+  public class Demo{
+    public static void main(String[] args){
+      Demo.test();
+      Demo d = new Demo();
+      d.f();
+    }
+    public static void test(){
+      System.out.println("Test");
+    }
+    public void f(){
+      System.out.println("Test");
+    }
+  }
+   
+static final 常量：固定不变的量
+  
+  public static final int ROWS = 20;
+  ROWS: 是常量
+  20: 字面量、直接量、直接值 
+
+abstract 抽象
+  abstract class 抽象类
+    1) 不能创建抽象类的对象
+    2) 只能用来被继承
+    3) 可以定义变量，引用子类型实例。
+    4) 抽象类中可以定义抽象方法
+    5) 具体子类继承抽象类时候，
+       必须实现抽象方法
+  用于：限制半成品继承根类，避免创建其对象！
+  用于：约定子类具有共同的方法！
+
+面向对象：将业务变成软件的方法论
+
+  面向对象的语法：类，对象，属性
+   静态，final，继承...
+
+  目的是用于将业务正确的变成软件。
+
+抽象类 与 接口
+  1 抽象类：用于抽象所有类的公共部分
+    定义全体类的抽象方法
+    可以包含具体方法
+  2 接口：用于抽取部分类的公共抽象方法
+    不能包含具体方法
+
+面向对象3大特征
+   继承，封装，多态
+
+多态：抽象概念的具体实例是多种多样的
+  Java 中的抽象概念：抽象类、接口
+  具体实例：子类对象
+ 
+  FlyingObject 的具体子类是多种多样的
+   蜜蜂，大飞机，小飞机，子弹 ....
+ 
+ 多态的用途：
+   FlyingObject[] objects;
+   
+   僵尸的父类型[] 全部僵尸;
+
+多态的特点：
+  一个类型的引用在指向不同的对象时
+    会有不同的实现：
+  FlyingObject obj = new Bee();
+  obj = new Airplane();
+  obj = new Nokia();
+
+  同样一个对象，造型成不同的类型时，
+    会有不同的功能：
+   Nokia nokia = new Nokia();
+   FlyingObject obj = nokia;
+   obj.move();//作为飞行物 可以飞行
+   Award awd = nokia;
+   //作为奖励 获取奖品
+   int a = awd.getAward();
+
+向上造型：子类型变量可以赋值给父类型变量
+  1 有继承关系的父子类型才能向上造型
+    子类向父类造型
+    子类向实现的接口造型
+    ***没有继承关系不能向上造型
+
+  2 Java 根据变量的类型检查属性/方法的
+   调用规则。如果这个变量类型上有哪些
+   方法属性，就只能调用这些方法和属性
+   不能调用没有声明的方法和属性。
+
+    如：Award 类型变量，只能调用getAward()
+       Emeny 类型变量，只能调用getScore()
+    Award awd = new Nokia();
+    int a = awd.getAward();
+    //不能调用 Award上没有声明的方法
+    // getScore()!
+    int s = awd.getScore();//编译错误！
+
+强制转型：如果需要调用具体子类的方法、
+  属性时候需要强制转型。
+   Award awd = new Nokia();
+   int a = awd.getAward();
+   //如果需要调用 getScore();
+   //awd.getScore();
+   Enemy e = (Enemy)awd;
+   int n = e.getScore();
+   FlyingObject o = (FlyingObject)awd;
+   o.move();
+
+  强制转型是有风险的：使用需谨慎！
+   如：
+     //如下代码 没有问题
+     FlyingObject o = new Nokia();
+     o.move();
+     Award a = (Award)o;
+     a.getAward();
+
+     FlyingObject o = new Bullet();
+     o.move();
+     Award a = (Award)o;//运行异常
+     a.getAward();
+
+instanceof 运算符：检查运行期间对象的类型
+ 可以利用instanceof 运算，检查类型
+ 在类型安全的情况下在进行转换。
+  instance 实例  of 的 
+  检查XXX对象是否是 XXX类型的实例
+
+  引用变量(指向对象) instanceof 类型
+
+  FlyingObject obj = new Bullet();
+
+  boolean ok = obj instanceof Award;
+  ok 是 false
+
+  obj = new Nokia();
+  boolean ok = obj instanceof Award;
+  ok 是 true
+  
+  //如下代码的目的：调用 getAward()方法
+  FlyingObject obj;
+  //称为：安全的类型转换
+  if(obj instanceof Award){
+    Award awd = (Award)obj;
+    int a = awd.getAward();
+  }
+
+
+
+
+
+
+
+

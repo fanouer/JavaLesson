@@ -1,0 +1,78 @@
+#Ajax简介
+Asynchronous JavaScript and XML
+异步的JavaScript和XML应用
+
+Ajax解决原有传统JSP程序的弊端
+-避免整个页面刷新,增强用户体验
+-可以实现多请求异步处理,增强处理效率
+-提升网络使用效率,提升程序性能
+
+Ajax技术适合场合（Web程序使用技术）
+-页面功能繁多
+-需要局部刷新
+
+#Ajax原理
+-利用XMLHttpRequest对象发送请求
+ 和接收处理
+-服务器处理结果以文本、XML
+ 或JSON格式将数据返回
+-利用HTML、CSS等技术将返回的数据
+ 渲染到页面局部区域
+-在发请求和回调处理期间采用JavaScript
+ 语言为基础
+
+#Ajax应用步骤
+##发送Ajax请求
+-发送请求时机？onclick,onblur
+-提交请求参数/格式检查？
+-发送Ajax请求，请求类型？请求地址？
+##服务器端处理
+请求-->Serlvet处理-->响应结果(text/json)
+##Ajax回调处理
+-解析数据？
+-显示到页面？
+
+#XMLHttpRequest对象的函数和属性
+-XMLHttpRequest对象创建
+ new XMLHttpRequest();
+-open("post|get",请求地址,异步|同步)
+-send(null)
+-readyState属性
+ 表示Ajax请求处理状态。属性值如下
+ 0：请求未初始化
+ 1：请求载入未发送
+ 2：请求发送未处理
+ 3：请求正在处理
+ 4：请求处理完毕,返回结果
+-onreadystatechange事件
+ readyState属性发生改变就会调用fn函数
+-responseText属性
+ 用于获取服务器返回的Text文本结果
+-responseXML属性
+ 用于获取服务器返回的XML结果
+-status属性
+ 表示服务器处理的HTTP CODE。
+ 例如404,500,200
+
+##Ajax应用中Post提交
+xhr.setRequestHeader("content-type",
+    "application/x-www-form-urlencoded");
+##Ajax应用中乱码问题
+-有参数提交,采用Post提交
+ 在Servlet端接收,先执行如下代码
+request.setCharacterEncoding("utf-8");
+-用get提交中文
+修改Tomcat中conf/server.xml配置
+<Connector port="8080" protocol="HTTP/1.1"
+ URIEncoding="utf-8"
+ connectionTimeout="20000"
+ redirectPort="8443" />
+
+
+
+
+
+
+
+
+

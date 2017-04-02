@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- 常量：每页显示行数 -->
+  <context-param>
+  	<param-name>size</param-name>
+  	<param-value>5</param-value>
+  </context-param>
+  
+  <servlet>
+  	<servlet-name>main</servlet-name>
+  	<servlet-class>web.MainServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>main</servlet-name>
+  	<url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 
+  	统一处理异常的配置方式有2种：
+  	 1.声明某种类型的异常对应某个错误页面；
+  	 2.声明某种编号的异常对应某个错误页面；
+  	注意：
+  	   错误页面的路径要使用绝对路径，项目
+  	   部署名不用写，Tomcat会自动在当前
+  	   项目下去查找这个页面。
+  -->
+  <!-- 按照类型配置 -->
+  <!-- 
+  <error-page>
+  	<exception-type>java.lang.Exception</exception-type>
+  	<location>/WEB-INF/error.jsp</location>
+  </error-page>
+  -->
+  <!-- 按照编号配置 -->
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/WEB-INF/error.jsp</location>
+  </error-page>
+  <error-page>
+  	<error-code>500</error-code>
+  	<location>/WEB-INF/error.jsp</location>
+  </error-page>
+  
+  <!-- 登录检查过滤器 -->
+  <filter>
+  	<filter-name>login</filter-name>
+  	<filter-class>web.LoginFilter</filter-class>
+  	<init-param>
+  		<param-name>excludePath</param-name>
+  		<param-value>
+  			/toLogin.do,/login.do,/createImg.do
+  		</param-value>
+  	</init-param>
+  </filter>
+  <filter-mapping>
+  	<filter-name>login</filter-name>
+  	<url-pattern>*.do</url-pattern>
+  </filter-mapping>
+  
+</web-app>
+
+
+
+
+
+

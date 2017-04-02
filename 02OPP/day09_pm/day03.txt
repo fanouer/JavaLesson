@@ -1,0 +1,279 @@
+程序=数据结构+算法
+     变量、数组 + 运算符+if、循环
+
+数据是有结构的！
+  对象：一组相关的数据+与数据有关的算法
+        这组数据代表软件中的一个个体
+  类：对象的模板，“重用”一个类创建多个对象。
+
+  属性：对象的数据，也是实例变量
+  方法：与对象的数据有关的算法。是对象的行为
+
+  方法的语法：
+    1 在类中定义！属于对象的行为（被
+       所有对象重用！）。
+    2 方法的3个要素：返回值，方法名，参数
+      返回值：方法必须声明返回值，如果没有
+         返回值，使用void，返回值代表方法
+	 的运算结果。
+      方法名：行为的名称，见名之意
+      参数：数据类型列表。方法的计算的前提
+        条件。无参数，表示计算过程只需要当
+	前对象的数据即可，无需其他数据。
+    3 方法是一个计算过程
+
+
+class Column{
+  int x;
+  int y;
+  int w;
+  int h;
+  int gap;
+
+  public void move(){
+    x--;
+  }
+}
+class Bird{
+  int x;
+  int y;
+  int size;
+  public void move(){
+    //利用垂直上抛运动公式计算 y 的值
+    //修改鸟的y
+  }
+  public boolean duang(Column c){
+    //利用鸟的数据和柱子的数据计算是否
+    //发生碰撞
+    return true//表示发生碰撞
+  }
+}
+class Ground{
+  int x;
+  int y;
+}
+
+使用对象：重用类创建多个对象
+  Column col1 = new Column();//创建一组变量
+  Column col2 = new Column();
+
+面向对象编程：从对象开始分析思考设计出类和
+   代码的过程称为面向对象编程。
+
+
+方法签名：方法名+方法参数列表
+编译规则：Java类中不能存在相同方法签名的方法
+  方法签名如果相同，Java无法区别调用方法。
+
+class Foo{
+   //签名：add(int,int)
+   public int add(int a, int b){
+      return a+b;
+   }
+   //签名：add(int,int)
+   public int add(int b, int a){
+      return a+b;
+   }
+}
+
+方法重载：方法名一样，参数类型列表不同的
+   方法（方法名相同，签名不同的方法）
+
+方法重载：是方法名相同，的完全不同的方法！
+  
+  println(65)  // println(int)
+  println((char)65)//println(char)
+
+重载的好处：追求语义的完美，优雅。
+
+
+class Person{
+  
+  public void love(Person other){
+    
+  }
+  public void love(Pet pet){
+    
+  }
+}
+
+
+重载的应用：
+  
+  //俄罗斯方块中的一个小格子
+  class Cell{
+    int row;
+    int col;
+    // 下落一格
+    public void drop(){
+      row++;
+    }
+    // 重载下落很多步的方法
+    public void drop(int steps){
+      //?
+      row+=steps;
+    }
+  }
+
+构造器语法
+  1 用途：初始化对象（一般初始化对象属性）
+  2 语法：
+    1) 方法名与类名相同（含大小写相同）
+    2) 不能定义返回值（定义返回值就是方法了）
+    3) 构造器可以重载
+  3 意义：重用对象的初始化过程！
+  4 使用new运算调用构造器，创建并且初始化
+    对象
+   
+   Cell c1 = new Cell(0,4);
+   Cell c1 = new Cell(0,3);
+
+class Cell{
+  int row;
+  int col;
+  //利用构造器初始化对象的属性
+  //根据给定的行列位置，初始化一个格子对象
+  public Cell(int r, int c){
+    //构造器方法体：对象的初始化过程
+    row = r;
+    col = c;
+  }
+}
+
+构造器和方法的区别：
+  方法：对象的行为（功能）    格子下落
+        是一个计算过程（算法）
+	用对象调用 foo.add()
+	必须定义返回值，没有值使用void
+
+  构造器：用于对象的初始化    初始化格式
+        是对象的初始化过程！
+        使用 new 运算符调用，创了对象！
+        必须没有返回值值
+	名称与类名一样。
+
+
+默认构造器
+  类一定有构造器
+
+class Goo{
+  //编译器会自动添加构造器 Goo()
+}
+
+Goo goo = new Goo();//可以编译，因为有构
+// 造器 Goo()
+
+class Koo{
+  //编译器就不再添加默认构造器 Koo()
+  public Koo(int a){
+  }
+}
+Koo koo = new Koo();//编译错误！
+Koo koo = new Koo(8);//可以通过编译
+
+构造器是可以重载的：
+  案例：设计一个类，代表矩形
+    设计构造器：
+       根据宽高初始化一个矩形
+       构造器重载：如果只有宽，初始化为正方形
+
+class Rect{
+  int width;
+  int height;
+  public Rect(int w, int h){
+    width = w;
+    height = h;
+  }
+  public Rect(int w){
+    width = w;
+    height = w;
+  }
+  public Rect(){
+    width=1;
+    height=1;
+  }
+}
+  
+this: 运行期间代表当前的这个对象本身
+      本意：就是“这个”对象本身
+
+Cell c1 = new Cell(0,4);
+Cell c2 = new Cell(0,3);
+
+c1.drop();
+c2.drop();
+
+class Cell{
+  int row;
+  int col;
+  public Cell(int r, int c){
+    this.row = r;
+    this.col = c;
+  }
+  public void drop(){
+    this.row++;
+  }
+
+}
+
+this 的工作原理（有难度）
+
+何时必须使用this：当一个方法中局部变量
+  与变量（属性）重名时候，不能省略this
+
+  this.变量 表示实例变量
+  变量 如果重名时候，是局部变量！
+
+class Xoo{
+  int a;
+
+  public Xoo(int a){
+    //出现了：实例变量是a，参数(局部变量)
+    // 重名现象
+    this.a = a;
+  }
+
+  public void test(){
+    int a;
+    a 是局部变量
+    this.a 是实例变量
+  }
+}
+
+this() 用于调用当前类的其他构造器。
+  用于实现构造器之间的“重用”
+
+  用途：
+    1 有一个主要构造器，封装核心初始化逻辑
+    2 重载很多辅助构造器（使用方面）
+    3 在重载的构造器中 this() 调用主构造器
+      重载的构造器重用了主的逻辑代码
+      简化了编程！
+
+  语法：
+    1 this() 只能在构造器中使用！
+    2 只能出现在构造器的第一行！
+    3 调用当前类的其他构造器（构造器重载！）。
+
+案例：
+  定义类代表 圆（属性：半径r，圆心（x,y））
+  
+  重载构造器：
+    1 构造器（主构造器）：初始化一个圆
+      根据：圆心和半径初始化一个圆
+    2 构造器(初始化单位圆)：无参数
+      过程：圆心(0,0) 半径：1
+      利用主构造器实现: 传递参数 0,0,1
+class Circle{
+  int x; int y; int r;
+  public Circle(int x, int y, int r){
+    this.x = x; this.y = y; this.r = r;
+  }
+  public Circle(){
+    this(0,0,1);
+  }
+}
+
+
+
+

@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>DEMO</title>
+		<script>
+			function loadCities() {
+				return [
+					["杭州","宁波","温州"],
+					["南京","无锡","苏州"],
+					["厦门","福州","泉州"]
+				];
+			}
+			function select(){
+				var citys=loadCities();
+				var s1=document.getElementById("province");
+				var n=s1.value;
+				console.log(n);
+				var pci=citys[n];
+				var s2=document.getElementById("city");
+				if(pci){
+					for(var i=0;i<pci.length;i++){
+						var opt=document.createElement("option");
+						opt.innerHTML=pci[i];
+						s2.appendChild(opt);
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		城市：
+		<select id ="province" onchange="select();">
+			<option >请选择</option>
+			<option value="0" >浙江省</option> 
+			<option value="1" >江苏省</option>
+			<option value="2" >福建省</option>
+		</select>
+		<select id="city">
+			<option>请选择</option>
+		</select>
+		
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

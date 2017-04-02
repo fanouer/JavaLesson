@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>内置对象</title>
+		<script>
+			console.log("---RegExp---");
+			var str = "no zuo no die no can no bb";
+			//test()
+			var reg = /no/;
+			console.log(reg.test(str));
+			//exec() 全局模式
+			reg = /no/g;
+			console.log(reg.exec(str));
+			console.log(reg.exec(str));
+			console.log(reg.exec(str));
+			console.log(reg.exec(str));
+			console.log(reg.exec(str));
+			console.log(reg.exec(str));
+			console.log(reg.exec(str));
+			//exec() 普通模式
+			reg = /no/;
+			console.log(reg.exec(str));
+			console.log(reg.exec(str));
+			//str.replace()
+			reg = /no/g;
+			console.log(str.replace(reg,"bu"));
+			//str.match()
+			console.log(str.match(reg));
+			//str.search()
+			console.log(str.search(reg));
+			
+			console.log("---Function---");
+			function sum() {
+				var sum = 0;
+				for(var i=0;i<arguments.length;i++) {
+					sum += arguments[i];
+				}
+				return sum;
+			}
+			console.log(sum(1,2));
+			console.log(sum(3,4,5,6));
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

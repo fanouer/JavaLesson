@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>购物车</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+      h1 {
+        text-align:center;
+      }
+      table {
+        margin:0 auto;
+        width:60%;
+        border:2px solid #aaa;
+        border-collapse:collapse;
+      }
+      table th, table td {
+        border:2px solid #aaa;
+        padding:5px;
+      }
+      th {
+        background-color:#eee;
+      }
+    </style>
+    <script>
+    	//加入购物车
+    	//调用该函数时传入了this，声明
+    	//参数btn接收此数据，参数名不能是this。
+    	function add_shoppingcart(btn) {
+    		console.log(btn);
+    		//获取按钮的爷爷(tr)
+    		var tr = btn.parentNode.parentNode;
+    		//获取爷爷的孩子(tds)
+    		var tds = tr.children;
+    		//获取第一列的内容(商品名)
+    		var name = tds[0].innerHTML;
+    		//获取第二列的内容(单价)
+    		var price = tds[1].innerHTML;
+    		//阶段测试
+    		console.log(name + "," + price);
+    		//创建新行
+    		var ntr = document.createElement("tr");
+    		ntr.innerHTML = 
+          '<td>'+name+'</td>'+
+          '<td>'+price+'</td>'+
+          '<td align="center">'+
+            '<input type="button" value="-" onclick="decrease(this);"/> '+
+            '<input type="text" size="3" readonly value="1"/> '+
+            '<input type="button" value="+" onclick="increase(this);"/>'+
+          '</td>'+
+          '<td>'+price+'</td>'+
+          '<td align="center"><input type="button" value="x" onclick="del(this);"/></td>';
+         //追加此行
+         var tbody = 
+        	 document.getElementById("goods");
+         tbody.appendChild(ntr);
+    		sum();
+    	}
+    	//删除
+    	function del(btn) {
+    		btn.parentNode.parentNode.remove();
+    		sum();
+    	}
+    	//加法
+    	function increase(btn) {
+    		//获取按钮的哥哥(text)
+    		var text = btn.previousElementSibling;
+    		//从框内获取数量
+    		var amount = text.value;
+    		//数量增加
+    		amount++;
+    		//将增加后的结果设置回框内
+    		text.value = amount;
+    		//获取按钮父亲的哥哥(单价td)
+    		var td1 = 
+    			btn.parentNode.previousElementSibling;
+    		//获取单价
+    		var price = td1.innerHTML;
+    		//计算金额
+    		var mny = price*amount;
+    		//获取按钮父亲的弟弟(金额td)
+    		var td3 = 
+    			btn.parentNode.nextElementSibling;
+    		//将金额写入td3
+    		td3.innerHTML = mny;
+    		sum();
+    	}
+    	//减法
+    	function decrease(btn) {
+    		//获取按钮的弟弟(text)
+    		var text = btn.nextElementSibling;
+    		//从框内获取数量
+    		var amount = text.value;
+    		//数量减少
+    		amount--;
+    		//数量不能小于1
+    		if(amount<1) {
+    			return;
+    		}
+    		//将减少后的结果设置回框内
+    		text.value = amount;
+    		//获取按钮父亲的哥哥(单价td)
+    		var td1 = 
+    			btn.parentNode.previousElementSibling;
+    		//获取单价
+    		var price = td1.innerHTML;
+    		//计算金额
+    		var mny = price*amount;
+    		//获取按钮父亲的弟弟(金额td)
+    		var td3 = 
+    			btn.parentNode.nextElementSibling;
+    		//将金额写入td3
+    		td3.innerHTML = mny;
+    		sum();
+    	}
+    	//计算合计
+    	function sum() {
+    		//获取tbody
+    		var tbody = 
+    			document.getElementById("goods");
+    		//获取tbody下所有的tr
+    		var trs = tbody.children;
+    		//遍历这些行
+    		var sum = 0;
+    		for(var i=0;i<trs.length;i++) {
+    			//从当前行内获取td3
+    			var td3 = trs[i].children[3];
+    			//累加
+    			sum += parseFloat(td3.innerHTML);
+    		}
+    		//将结果写入合计列
+    		var total = 
+    			document.getElementById("total");
+    		total.innerHTML = sum;
+    	}
+    </script>
+  </head>
+  <body>
+    <h1>真划算</h1>
+    <!-- th就是特殊的td，通常标题行中的列
+    	会写成th，它自动加粗并居中了。 -->
+    <table>
+      <tr>
+        <th>商品</th>
+        <th>单价(元)</th>
+        <th>颜色</th>
+        <th>库存</th>
+        <th>好评率</th>
+        <th>操作</th>
+      </tr>   
+      <tr>
+        <td>罗技M185鼠标</td>
+        <td>80</td>
+        <td>黑色</td>
+        <td>893</td>
+        <td>98%</td>
+        <td align="center">
+          <input type="button" value="加入购物车" onclick="add_shoppingcart(this);"/>
+        </td>
+      </tr>
+      <tr>
+        <td>微软X470键盘</td>
+        <td>150</td>
+        <td>黑色</td>
+        <td>9028</td>
+        <td>96%</td>
+        <td align="center">
+          <input type="button" value="加入购物车" onclick="add_shoppingcart(this);"/>
+        </td>
+      </tr>
+      <tr>
+        <td>洛克iphone6手机壳</td>
+        <td>60</td>
+        <td>透明</td>
+        <td>672</td>
+        <td>99%</td>
+        <td align="center">
+          <input type="button" value="加入购物车" onclick="add_shoppingcart(this);"/>
+        </td>
+      </tr>
+      <tr>
+        <td>蓝牙耳机</td>
+        <td>100</td>
+        <td>蓝色</td>
+        <td>8937</td>
+        <td>95%</td>
+        <td align="center">
+          <input type="button" value="加入购物车" onclick="add_shoppingcart(this);"/>
+        </td>
+      </tr>
+      <tr>
+        <td>金士顿U盘</td>
+        <td>70</td>
+        <td>红色</td>
+        <td>482</td>
+        <td>100%</td>
+        <td align="center">
+          <input type="button" value="加入购物车" onclick="add_shoppingcart(this);"/>
+        </td>
+      </tr>
+    </table>
+  
+    <h1>购物车</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>商品</th>
+          <th>单价(元)</th>
+          <th>数量</th>
+          <th>金额(元)</th>
+          <th>删除</th>
+        </tr>
+      </thead>
+      <tbody id="goods">
+        <!-- 
+        <tr>
+          <td>罗技M185鼠标</td>
+          <td>80</td>
+          <td align="center">
+            <input type="button" value="-"/>
+            <input type="text" size="3" readonly value="1"/>
+            <input type="button" value="+"/>
+          </td>
+          <td>80</td>
+          <td align="center"><input type="button" value="x"/></td>
+        </tr>
+        -->
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3" align="right">总计</td>
+          <td id="total"></td>
+          <td></td>
+        </tr>
+      </tfoot>
+    </table>    
+  </body>
+</html>

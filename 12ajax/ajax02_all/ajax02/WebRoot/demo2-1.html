@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title>Ajax下拉列表+jQuery</title>
+    <meta charset="UTF-8">
+    <script type="text/javascript"
+    	 src="js/jquery-1.11.1.js">
+    </script>
+    <script type="text/javascript">
+    //加载城市信息
+    function sendRequest(){
+    	//发送Ajax请求
+    	$.getJSON("loadcities.do",
+    		function(cities){//cities是JSON类型变量
+    		   var s = document.getElementById("cities");
+    			//循环解析cities,生成Option
+    			for(var i=0;i<cities.length;i++){
+    				var id = cities[i].id;
+    				var name = cities[i].name;
+    				var opt = new Option(name,id);
+    				//将option添加到select中
+    				s.options[i] = opt;
+    			}
+    		}
+    	);
+   }
+    
+	</script>
+  </head>
+  <!-- 服务器端返回 JSON数据 -->
+  <body onload="sendRequest()">
+    城市：<select id="cities">
+    	</select>
+  </body>
+</html>

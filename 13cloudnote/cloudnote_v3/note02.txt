@@ -1,0 +1,26 @@
+#注册功能
+##发送Ajax请求
+-时机:注册按钮的click
+-提交的数据:用户名,昵称,密码
+-请求地址:/user/regist.do
+
+##服务器端处理
+/user/regist.do
+-->DispatcherServlet
+-->HandlerMapping
+-->UserRegistController.execute
+-->UserService.registUser
+-->UserDao.save-->cn_user(添加)
+-->返回NoteResult对象
+-->转成JSON响应输出
+
+##Ajax回调处理
+success:提示"注册成功";切换到登录界面
+        用户名被占用提示
+error:提示"注册异常"
+
+http://localhost:8080/cloudnote
+/user/regist.do?name=demo
+
+
+

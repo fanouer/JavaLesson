@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>选择器</title>
+		<style>
+			/*1.类选择器*/
+			.female {
+				color: pink;
+			}
+			/*2.ID选择器*/
+			#p4 {
+				color: red;
+			}
+			/*3.选择器组*/
+			.female, #p4 {
+				font-family: 
+					"微软雅黑","文泉驿正黑","黑体";
+			}
+			/*4.派生选择器*/
+			/*4.1后代选择器：选子孙*/
+			#d1 b {
+				color: blue;
+			}
+			/*4.2子元素选择器：只选儿子*/
+			#d1>b {
+				font-size: 30px;
+			}
+			/*5.伪类选择器*/
+			/*5.1 link 选择未访问过的超链接*/
+			a:link {
+				color: blue;
+			}
+			/*5.2 visited 选择访问过的超链接*/
+			a:visited {
+				color: red;
+			}
+			/*5.3 active 选择正在点击的元素*/
+			#btn1:active {
+				color: red;
+			}
+			/*5.4 hover 选择鼠标碰到的元素*/
+			span:hover {
+				background-color: yellow;
+			}
+			/*5.5 focus 选择有焦点(光标闪烁)的元素*/
+			#t1:focus {
+				background-color: green;
+			}
+		</style>
+	</head>
+	<body>
+		<h1 class="female">苍老师</h1>
+		<h2>范传奇</h2>
+		<h3 class="female">王克晶</h3>
+		<p>苍老师呀苍老师</p>
+		<p>范传奇呀范传奇</p>
+		<p>王克晶呀王克晶</p>
+		<p id="p4">瞧你们那点破事</p>
+		<!-- 
+			div
+			   u
+			     b(北三环)
+			   b(中鼎大厦)
+		-->
+		<div id="d1">
+			北京市<u>海淀区<b>北三环</b>西路</u>甲18号<b>中鼎大厦</b>B8
+		</div>
+		<div>
+			<a href="http://www.tmooc.cn">达内幕课</a>
+			<a href="http://www.sb.com">随便</a>
+			<input type="button" value="点我" id="btn1"/>
+			<span>碰我试试</span>
+			<input type="text" id="t1"/>
+		</div>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

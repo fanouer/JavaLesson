@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>jQuery选择器</title>
+		<script src="../js/jquery-1.11.1.js"></script>
+		<script>
+			window.onload = function(){
+				console.log("---层次选择器---");
+				console.log($("#sd~"));
+				
+				console.log("---*基本过滤选择器---");
+				console.log($("tr:last"));
+				console.log($("tr:odd"));
+				console.log($("tr:eq(2)"));
+				console.log($("tr:not(tr:eq(2))"));
+				
+				console.log("---内容过滤选择器---");
+				console.log($("li:contains('江')"));
+				
+				console.log("---可见性过滤选择器---");
+				console.log($("p:hidden"));
+				
+				console.log("---属性过滤选择器---");
+				console.log($("li[id!='sd']"));
+				
+				console.log("---状态过滤选择器---");
+				console.log($("input:disabled"));
+				console.log($("input:checked"));
+				
+				console.log("---表单选择器---");
+				console.log($(":checkbox"));
+			}
+		</script>
+	</head>
+	<body>
+		<ol>
+			<li>河北省</li>
+			<li id="sd">山东省</li>
+			<li>江苏省</li>
+			<li>浙江省</li>
+		</ol>
+		<table>
+			<tr>
+				<td>唐僧</td>
+				<td>6000</td>
+			</tr>
+			<tr>
+				<td>悟空</td>
+				<td>5000</td>
+			</tr>
+			<tr>
+				<td>八戒</td>
+				<td>4000</td>
+			</tr>
+			<tr>
+				<td>沙僧</td>
+				<td>3000</td>
+			</tr>
+		</table>
+		<p>苍老师</p>
+		<p>王克晶</p>
+		<p>范传奇</p>
+		<p>李洪鹤</p>
+		<p style="display:none;">程祖红</p>
+		<p style="display:none;">梁健全</p>
+		<!-- 
+			readonly：只读，值可以传给服务器。
+			disabled：只读，值无法传给服务器。
+		-->
+		<div>
+			账号:<input type="text" disabled/>
+		</div>
+		<div>
+			密码:<input type="password"/>
+		</div>
+		<div>
+			兴趣:
+			<input type="checkbox" checked/>篮球
+			<input type="checkbox" checked/>足球
+			<input type="checkbox"/>排球
+		</div>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

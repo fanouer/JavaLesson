@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>自动打分</title>
+		<script src="../js/jquery-1.11.1.js"></script>
+		<script>
+			$(function(){
+				//绑定事件
+				//$(":button").click(function(){
+				//	randomMark();
+				//});
+				$(":button").click(randomMark);
+			});
+			
+			//声明函数
+			function randomMark() {
+				var index = 0;
+				var id = setInterval(function(){
+					//为本次循环对应的框设置焦点，
+					//即模拟获取焦点事件(onfocus)
+					$(":text").eq(index).trigger("focus");
+					//设置随机分数
+					var score = parseInt(Math.random()*100);
+					$(":text").eq(index).val(score);
+					//自增
+					index++;
+					//关闭定时器
+					if(index==$(":text").length) {
+						clearInterval(id);
+					}
+				}, 2000);
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" value="随机打分"/>
+		<p>
+			苍老师：<input type="text"/>
+		</p>
+		<p>
+			王克晶：<input type="text"/>
+		</p>
+		<p>
+			范传奇：<input type="text"/>
+		</p>
+		<p>
+			李洪鹤：<input type="text"/>
+		</p>
+		<p>
+			程祖红：<input type="text"/>
+		</p>
+		<p>
+			梁健全：<input type="text"/>
+		</p>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

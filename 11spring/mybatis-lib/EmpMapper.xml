@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="org.tarena.mapper.EmpMapper">
+<cache/>
+<!-- 查询指定部门或所有部门工资大于2000的员工 -->
+<select id="findByDeptNo" parameterType="Emp" 
+	resultType="Emp">
+select * from EMP where SAL>2000
+<if test="deptno != null">
+and DEPTNO = #{deptno}
+</if>
+</select>
+
+<!-- 按名字查询 -->
+<select id="findLikeName"
+	resultType="Emp" parameterType="Emp" >
+select * from EMP where 1=1
+	<choose>
+		<when test="ename != null">
+			and ENAME like #{ename}
+		</when>
+		<otherwise>
+			and ENAME like '%A%'
+		</otherwise>
+	</choose>
+</select>
+
+<!-- in条件 -->
+<select id="findByDeptNos"
+	resultType="Emp" parameterType="Emp" >
+	select * from EMP
+	<if test="deptnos != null">
+		where DEPTNO in
+		<foreach collection="deptnos"
+			item="dno" open="(" close=")" separator=",">
+			#{dno}
+		</foreach>
+	</if>
+</select>
+
+<!-- where -->
+<select id="findByCondition"
+	resultType="Emp" parameterType="Emp" >
+select * from EMP 
+<where>
+	<if test="deptno != null">
+		DEPTNO = #{deptno}
+	</if>
+	<choose>
+		<when test="ename != null">
+			and ENAME like #{ename}
+		</when>
+		<otherwise>
+			and ENAME like '%A%'
+		</otherwise>
+	</choose>
+</where>
+</select>
+
+<!-- 批量插入 -->
+<insert id="add" parameterType="Emp">
+insert into EMP (EMPNO,ENAME,SAL,COMM,DEPTNO)
+values (#{empno},#{ename},#{sal},#{comm},#{deptno})
+</insert>
+<!-- 按empno查询 -->
+<select id="findById" parameterType="int" 
+resultType="Emp" useCache="true">
+select * from EMP where EMPNO=#{no}
+</select>
+
+<!-- 返回Map -->
+<select id="findEmps"  resultType="java.util.HashMap">
+	select EMPNO,ENAME from EMP
+</select>
+
+<select id="findEmp" parameterType="int" resultType="java.util.HashMap">
+	select EMPNO,ENAME from EMP where EMPNO=#{no}
+</select>
+
+
+</mapper>

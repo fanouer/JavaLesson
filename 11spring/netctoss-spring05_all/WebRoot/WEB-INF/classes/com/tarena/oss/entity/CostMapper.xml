@@ -1,0 +1,23 @@
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.tarena.oss.dao.CostDAO">
+
+<select id="findAll" 
+	resultType="com.tarena.oss.entity.Cost">
+SELECT cost_id costId,
+		 name,
+		 base_duration baseDuration,
+		 base_cost baseCost,
+		 unit_cost unitCost,
+		 status,
+		 descr,
+		 creatime,
+		 startime,
+		 cost_type costType
+FROM cost_lhh
+ORDER BY cost_id
+</select>
+
+</mapper>
+
+

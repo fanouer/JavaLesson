@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <title>Ajax示例</title>
+    <meta charset="UTF-8">
+    <script type="text/javascript">
+    //封装了XMLHttpRequest对象获取过程
+    function getXhr(){
+    	var xhr = null;
+    	if(window.XMLHttpRequest){//非IE浏览器
+    		xhr = new XMLHttpRequest();
+    	}else{//IE
+    		xhr = new ActiveXObject(
+    				"Microsoft.XMLHTTP");
+    	}
+    	return xhr;
+    };
+    
+    function sendRequest1(){
+    	//采用XMLHttpRequest对象发送HTTP请求
+    	var xhr = getXhr();//获取Ajax对象
+    	//利用Ajax对象发送请求
+    	xhr.open("get","hello.do",true);//创建HTTP请求
+    	//注册回调函数
+    	xhr.onreadystatechange = function(){
+    		if(xhr.readyState==4 && xhr.status==200){
+    			//获取服务器返回的结果
+    			var msg = xhr.responseText;
+    			//用alert显示
+    			alert(msg);
+    		}
+    	};
+    	xhr.send(null);//发送HTTP请求
+    }
+    </script>
+    <script type="text/javascript">
+    //发送请求检测用户名是否可用
+    function sendRequest2(){
+    	//获取请求参数
+    	var name = document.getElementById(
+    			"username").value;
+    	var name_span = document.getElementById(
+    			"username_span");
+    	if(name==""){
+    		name_span.innerHTML = "用户名不能为空";
+    	}else{
+    		//发送Ajax请求
+    		var xhr = getXhr();
+    		//xhr.open("get","check.do?name="+name,true);
+    		xhr.open("post","check.do",true);
+    		xhr.setRequestHeader("content-type",
+    			"application/x-www-form-urlencoded");
+    		//指定回调函数
+    		xhr.onreadystatechange = function(){
+    			if(xhr.readyState==4 && xhr.status==200){
+    				//获取服务器返回消息显示到span
+    				var msg = xhr.responseText;
+    				name_span.innerHTML = msg;
+    			}
+    		};
+    		xhr.send("name="+name);
+    		//提示正在检测
+    		name_span.innerHTML = "正在检测...";
+    	}
+    	
+    };
+    </script>
+  </head>
+  <body>
+    <input type="button" id="btn1" 
+   value="发送Ajax请求" onclick="sendRequest1()">
+   <hr/>
+   用户名:<input type="text" id="username" 
+   	onblur="sendRequest2()">
+   <span id="username_span"></span>
+  </body>
+</html>
+
+
+
+
+

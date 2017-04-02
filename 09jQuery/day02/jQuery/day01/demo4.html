@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>jQuery操作DOM</title>
+		<style>
+			.big {
+				font-size: 30px;
+			}
+			.important {
+				color: red;
+			}
+		</style>
+		<script src="../js/jquery-1.11.1.js"></script>
+		<script>
+			window.onload = function() {
+				console.log("---读写节点---");
+				//html() == innerHTML
+				console.log($("p:eq(0)").html());
+				$("p:eq(0)").html("1.jQuery可以<u>读写</u>DOM");
+				//text() == innerText
+				
+				//val() == value
+				console.log($(":text").val());
+				$(":text").val("tarena");
+				//attr() == getAttribute()+setAttribute()
+				console.log($("img").attr("src"));
+				$("img").attr("src","../images/02.jpg");
+			
+				console.log("---增删节点---");
+				//创建新节点
+				var $li = $("<li>山东省</li>");
+				//添加节点
+				$("ol").prepend($li);
+				$li = $("<li>山西省</li>");
+				$("#hn").after($li);
+				//删除节点
+				$("#hn").remove();
+				//清空节点
+				//html("") == empty()
+				$("ol li:last").empty();
+				
+				console.log("---样式操作---");
+				$("#b").addClass("big");
+				$("#b").removeClass("big");
+				console.log($("#c").hasClass());
+				
+				console.log("---遍历节点---");
+				console.log($("ol").children());
+				console.log($("#hb").next());
+				console.log($("#hb").siblings());
+				console.log($("ol").find(":gt(2)"));
+			}
+			
+			function toggle() {
+				//切换样式：让指定的样式
+				//在有和无之间切换。
+				$("#d").toggleClass("big");
+			}
+		</script>
+	</head>
+	<body>
+		<p>1.jQuery可以<b>读写</b>DOM</p>
+		<p>2.jQuery可以<u>增删</u>DOM</p>
+		<p>
+			<input type="text" value="abc"/>
+			<img src="../images/01.jpg"/>
+		</p>
+		<ol>
+			<li id="hb">河北省</li>
+			<li>河南省</li>
+			<li>湖北省</li>
+			<li id="hn">湖南省</li>
+			<li>广东省</li>
+			<li>广西省</li>
+		</ol>
+		<p id="a" class="big important">aaa</p>
+		<p id="b">bbb</p>
+		<p id="c">ccc</p>
+		<p id="d">ddd</p>
+		<input type="button" value="切换"
+			onclick="toggle();"/>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

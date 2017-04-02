@@ -1,0 +1,1 @@
+var schemaUrl = "http://localhost:8080/cloudnote";

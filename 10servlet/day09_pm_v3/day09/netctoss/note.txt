@@ -1,0 +1,47 @@
+1.netctoss
+  net
+  c China
+  t Telecom
+  o Operation
+  s Support
+  s System
+   中国电信运营支持系统-网络版
+
+2.导包(9)
+ - jdbc 1
+ - dbcp 2
+ - javaee 4
+ - jstl 2
+
+3.Servlet路径规范
+ - 查询资费：/netctoss/findCost.do
+ - 打开增加：/netctoss/toAddCost.do
+ - 增加保存：/netctoss/addCost.do
+ - 打开修改：/netctoss/toUpdateCost.do
+ - 修改保存：/netctoss/updateCost.do
+ - 删除资费：/netctoss/deleteCost.do
+ - 打开登录：/netctoss/toLogin.do
+ - 打开主页：/netctoss/toIndex.do
+ - 登录验证：/netctoss/login.do
+ - 退出登录：/netctoss/logout.do
+ - 生成验证码：/netctoss/createImg.do
+
+4.页面命名规范
+ - 查询资费：WEB-INF/cost/find.jsp
+ - 增加资费：WEB-INF/cost/add.jsp
+ - 修改资费：WEB-INF/cost/update.jsp
+ - 登录：WEB-INF/main/login.jsp
+ - 主页：WEB-INF/main/index.jsp
+
+补充：
+  查询资费时转发的路径：
+  当前：/netctoss/findCost.do
+  目标：/netctoss/WEB-INF/cost/find.jsp
+  相对路径：WEB-INF/cost/find.jsp
+
+
+
+
+
+
+   

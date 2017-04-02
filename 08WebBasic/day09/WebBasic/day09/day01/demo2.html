@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>DEMO</title>
+	</head>
+	<body>
+		<!-- 1.标题 -->
+		<h1>苍老师</h1>
+		<h2>范传奇</h2>
+		<h3>王克晶</h3>
+		<!-- 2.段落 -->
+		<p>范传奇暗恋王克晶</p>
+		<p><a href="#cang">苍老师</a>吃醋</p>
+		<!-- 3.列表 -->
+		<!-- 3.1有序列表 -->
+		<ol>
+			<li>浙江省</li>
+			<li>江苏省</li>
+			<li>山东省</li>
+		</ol>
+		<!-- 3.2无序列表 -->
+		<ul>
+			<li>北京</li>
+			<li>上海</li>
+			<li>广州</li>
+		</ul>
+		<!-- 3.3嵌套列表 -->
+		<ol>
+			<li>
+				浙江省
+				<ul>
+					<li>杭州</li>
+					<li>宁波</li>
+					<li>温州</li>
+				</ul>
+			</li>
+			<li>
+				江苏省
+				<ul>
+					<li>南京</li>
+					<li>无锡</li>
+					<li>苏州</li>
+				</ul>
+			</li>
+		</ol>
+		<!-- 4.行内元素 -->
+		<p>
+			北京市<i>海淀区</i>北三环<u>西路</u>甲<b>18</b>号<span style="color:blue;">中鼎大厦</span>B8
+		</p>
+		<!-- 5.空格折叠 -->
+		<p>
+			那是一个&nbsp;&nbsp;&nbsp;&nbsp;秋天，<br/>
+			看着传奇&nbsp;&nbsp;&nbsp;&nbsp;跑偏。<br/>
+			奔着克晶&nbsp;&nbsp;&nbsp;&nbsp;而去，<br/>
+			误入老苍&nbsp;&nbsp;&nbsp;&nbsp;心间。<br/>
+		</p>
+		<!-- 6.图片 -->
+		<!-- 6.1绝对路径：
+			D:\day01\images\01.jpg
+			/home/soft01/01.jpg -->
+		<!-- 6.2相对路径：
+			写出图片和当前网页的相对位置。 -->
+		<p>
+			<!-- 图片和页面平级 -->
+			<img src="01.jpg"/>
+			<!-- 图片在页面的下级 -->
+			<img src="i/02.jpg"/>
+			<!-- 图片在页面的上级 -->
+			<img src="../03.jpg"/>
+			<!-- 通常的情况 -->
+			<img src="../images/04.jpg"/>
+		</p>
+		<!-- 7.超链接 -->
+		<p>
+			<a href="http://www.tmooc.cn" target="_blank">达内幕课</a>
+		</p>
+		<p>
+			<a name="cang">苍老师是一个德艺双馨的好老师</a>
+		</p>
+		<p>
+			<!-- 顶部默认是锚，且没有名字。 -->
+			<a href="#">回到顶部</a>
+		</p>
+		<!-- 8.表格 -->
+		<!-- 表格的大部分属性所产生的效果，
+			都可以通过CSS实现，事实上也推荐
+			使用CSS实现这些效果。因此，表格
+			的这些属性简单了解即可。 -->
+		<table border="1px" 
+			width="30%" cellspacing="0">
+			<tr>
+				<td>苍老师</td>
+				<td>范传奇</td>
+			</tr>
+			<tr>
+				<td>王克晶</td>
+				<td>程祖红</td>
+			</tr>
+		</table>
+		<!-- 跨列 -->
+		<table border="1px" 
+			width="30%" cellspacing="0">
+			<tr>
+				<td colspan="2">苍老师</td>
+				<!-- <td>范传奇</td> -->
+			</tr>
+			<tr>
+				<td>王克晶</td>
+				<td>程祖红</td>
+			</tr>
+		</table>
+		<!-- 跨行 -->
+		<table border="1px" 
+			width="30%" cellspacing="0">
+			<tr>
+				<td rowspan="2">苍老师</td>
+				<td>范传奇</td>
+			</tr>
+			<tr>
+				<!-- <td>王克晶</td> -->
+				<td>程祖红</td>
+			</tr>
+		</table>		
+		<!-- 行分组：分组的目的是为了
+			方便给每一组的内容设置样式。 -->
+		<table border="1px"
+			width="40%" cellspacing="0">
+			<!-- 标题 -->
+			<thead>
+				<tr>
+					<td>编号</td>
+					<td>名称</td>
+					<td>金额</td>
+				</tr>
+			</thead>
+			<!-- 数据 -->
+			<tbody style="color:red;">
+				<tr>
+					<td>001</td>
+					<td>鼠标</td>
+					<td>50</td>
+				</tr>
+				<tr>
+					<td>002</td>
+					<td>键盘</td>
+					<td>100</td>
+				</tr>
+			</tbody>
+			<!-- 合计 -->
+			<tfoot>
+				<tr>
+					<td colspan="2">合计</td>
+					<td>150</td>
+				</tr>
+			</tfoot>
+		</table>
+	</body>
+</html>
+
+
+
+
+
+

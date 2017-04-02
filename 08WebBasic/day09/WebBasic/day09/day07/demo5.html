@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>DOM</title>
+	</head>
+	<body>
+		<ul id="city">
+			<li>北京</li>
+			<li id="sh">上海</li>
+			<li id="gz">广州</li>
+			<li>深圳</li>
+		</ul>
+		
+		<script>
+			console.log("---增加节点---");
+			//1.创建节点
+			var li1 = document.createElement("li");
+			li1.innerHTML = "杭州";
+			//2.追加节点
+			var ul = document.getElementById("city");
+			ul.appendChild(li1);
+			//3.插入节点
+			var li2 = document.createElement("li");
+			li2.innerHTML = "南京";
+			var sh = document.getElementById("sh");
+			ul.insertBefore(li2,sh);
+			
+			console.log("---删除节点---");
+			//1.父亲删孩子：父亲.removeChild(孩子)
+			ul.removeChild(sh);
+			//2.自己删自己：节点.remove()
+			ul.remove();
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

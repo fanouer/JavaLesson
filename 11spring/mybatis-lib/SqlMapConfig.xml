@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>  <!DOCTYPE configuration             PUBLIC "-//ibatis.apache.org//DTD Config 3.0//EN"            "http://ibatis.apache.org/dtd/ibatis-3-config.dtd">
+<configuration>
+	<environments default="environment">
+		<environment id="environment">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" 
+					value="oracle.jdbc.OracleDriver" />
+				<property name="url"
+					value="jdbc:oracle:thin:@192.168.0.23:1521:tarena10g"/>
+				<property name="username" value="demo" />
+				<property name="password" value="demo" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	<mappers>
+		<mapper resource="org/tarena/entity/Emp.xml" />
+	</mappers>
+</configuration> 

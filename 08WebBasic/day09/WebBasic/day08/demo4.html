@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>事件源</title>
+		<style>
+			div {
+				border: 1px solid red;
+				padding: 50px;
+			}
+		</style>
+		<script>
+			function f1(e) {
+				//获取事件源
+				var obj = e.srcElement||e.target;
+				console.log(obj);
+			}
+		</script>
+	</head>
+	<body>
+		<div onclick="f1(event);">
+			<p>aaa</p>
+			<a href="#">bbb</a>
+			<input type="button" value="ccc"/>
+		</div>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

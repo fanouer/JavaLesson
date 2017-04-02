@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title>jQuery+Ajax列表显示</title>
+    <meta charset="UTF-8">
+    <script type="text/javascript"
+    	src="js/jquery-1.11.1.js">
+    </script>
+    <script type="text/javascript">
+    //onload事件
+    $(function(){
+    	//发送Ajax请求
+    	$.ajax({
+    		type:"get",
+    		url:"http://localhost:8080/ajax03/loadcities.do",
+    		dataType:"json",
+    		success:function(data){
+    			//循环解析data数据
+    			for(var i=0;i<data.length;i++){
+    				var id = data[i].id;
+    				var name = data[i].name;
+    				//构建一个tr元素
+    				var str = "<tr><td>"+id+"</td><td>"+name+"</td></tr>";
+    				//添加到table列表中
+    				$("#city_list").append(str);
+    			}
+    		},
+    		error:function(){
+    			alert("加载列表失败");
+    		}
+    	});
+    });
+    </script>
+  </head>
+  <body>
+   <table id="city_list">
+   	<tr><td>编号</td><td>名称</td></tr>
+   </table>
+  </body>
+</html>

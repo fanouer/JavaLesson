@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>注册</title>
+		<style>
+			.ok {
+				color: green;
+				border: 1px solid green;
+			}
+			.error {
+				color: red;
+				border: 1px solid red;
+			}
+		</style>
+		<script>
+			//js的函数默认都有返回值(undefined)，
+			//我们可以通过return声明返回值。
+			
+			//校验账号
+			function checkCode() {
+				console.log(1);
+				//获取元素
+				var text = 
+					document.getElementById("code");
+				var span = 
+					document.getElementById("code_msg");
+				//获取账号
+				var code = text.value;
+				//校验格式
+				var reg = /^\w{6,12}$/;
+				if(reg.test(code)) {
+					//校验成功，提示变绿
+					span.className = "ok";
+					return true;
+				} else {
+					//校验失败，提示变红
+					span.className = "error";
+					return false;
+				}
+			}
+			//校验密码
+			function checkPwd() {
+				var input = 
+					document.getElementById("pwd");
+				var span = 
+					document.getElementById("pwd_msg");
+				var pwd = input.value;
+				var reg = /^\w{8,16}$/;
+				if(reg.test(pwd)) {
+					span.className = "ok";
+					return true;
+				} else {
+					span.className = "error";
+					return false;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<form action="http://www.tmooc.cn"
+			onsubmit="return checkCode()+checkPwd()==2;">
+			<p>
+				账号：
+				<input type="text" id="code"
+					onblur="checkCode();"/>
+				<span id="code_msg">6-12位字母、数字、下划线</span>
+			</p>
+			<p>
+				密码：
+				<input type="password" id="pwd"
+					onblur="checkPwd();"/>
+				<span id="pwd_msg">8-16位字母、数字、下划线</span>
+			</p>
+			<p>
+				<input type="submit" value="注册"/>
+			</p>
+		</form>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

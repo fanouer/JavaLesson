@@ -1,0 +1,78 @@
+软件实现步骤(参考)：
+ 1 分析软件业务
+   找到对象： 飞机，大飞机，蜜蜂，英雄
+     子弹，天空，世界
+ 2 设计对象的数据
+ 3 抽象出类结构
+    抽象类 FlyingObject 
+       包含属性 x y width height 
+       包含方法 抽象方法move 具体方法duang
+            
+    接口 Enemy Award 
+      Enemy 包含抽象方法 getScore()
+      Award 包含抽象方法 getAward()
+
+    子类：Airplane BigPlane Bee Bullet
+       Sky Hero 
+      Airplane 包含方法 move getScore
+      BigPlane 包含方法 move getScore getAward
+      Bee 包含方法 move getAward
+      Bullet 包含方法 move 
+      Sky 包含方法move
+      Hero 包含方法 move 重载move(x,y)
+    
+    核心类 World
+    其中
+     class World{
+       Sky sky;
+       Hero hero;
+       FlyingObject[] enemies;
+       Bullet[] bullets;
+       
+       public World(){
+         //初始化 sky  hero  enemies  bullets
+       }
+       
+       public static void main(String[] args){
+         //创建 World 对象。
+       }
+
+     }
+
+概要编码：创建类和接口
+
+
+详细编码:
+   为子类 Airplane BigPlane Bee Bullet
+       Sky Hero 添加需要实现的抽象方法。
+ 
+软件界面编码：利用Java提供的API实现软件的界面
+  JFrame 代表软件界面的窗口框对象
+  JPanel 代表窗框中的面板对象。
+  
+  JFrame对象中要嵌入JPanel对象来显示窗框
+
+  将World类继承于JPanel，作为JPanel的子类
+  放入JFrame中显示：这样就可以在窗框中显示
+  World对象了。
+     
+  在World中重写paint方法进行自定义的绘制。
+  这是Java API 提供的功能。
+
+  重构FlyingObject类：添加image属性，表示
+  任何飞行物都有可以显示的图片属性。
+
+如何实现的贴图
+ 1 更新 World 类
+   增加静态变量 background 代表背景图片
+ 2 World 类增加 静态代码块 
+   读取图片(cn/tedu/shooter/background.png)
+   到对象，赋值给background 变量
+ 3 在World 类构造器中，将background变量传递
+   Sky对象
+ 4 重构 Sky 的构造器接收 background 图片
+   赋值给image属性。
+ 5 改写 paint 方法 
+    在 0,0 位置绘制sky的image图片。
+
+ 

@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>事件</title>
+		<script src="../js/jquery-1.11.1.js"></script>
+		<script>
+			$(function(){
+				//1.CSS中学了hover，是伪类选择器。
+				//2.js中没有hover事件，有
+				//  onmouseover和onmouseout事件。
+				//3.jQuery中的hover事件等价于
+				//  onmouseover + onmouseout。
+				$("img").hover(
+					function(){
+						$(this).width("250px").height("250px");
+					},//鼠标悬停
+					function(){
+						$(this).width("218px").height("218px");
+					} //鼠标离开
+				);
+				
+				$(":button").click(function(){
+					//toggle事件是让元素在
+					//显示与隐藏之间切换的事件。
+					$("img").toggle();
+				});
+				
+				//模拟单击事件
+				$(":button").trigger("click");
+			});
+		</script>
+	</head>
+	<body>
+		<p>
+			<input type="button" value="消失"/>
+		</p>
+		<p>
+			<img src="../images/01.jpg"/>
+			<img src="../images/02.jpg"/>
+			<img src="../images/03.jpg"/>
+		</p>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,12 @@
+#JSON简介
+JavaScript Object Notation 
+JavaScript对象格式
+在JavaScript语言里有一种JSON类型
+var obj = {"key1":value1,"key2":value2};
+obj.key1//获取value1
+
+#JSON在Ajax中的应用
+JSON在Ajax中作为一种数据传输格式。
+Tomcat-->JSON格式字符串-->Ajax回调函数
+##客户端将JSON字符串转成JSON变量
+##服务器端将Java对象转成JSON字符串

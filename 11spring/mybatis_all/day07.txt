@@ -1,0 +1,71 @@
+梁建全:liangjq@tedu.cn
+=======================
+#MyBatis简介
+iBatis(封装JDBC操作)-->google-->MyBatis
+##MyBatis封装的功能
+-封装了获取链接、生成statement、
+ 设置参数值、执行SQL过程
+-封装了查询结果集映射成实体对象过程
+##MyBatis使用者需要做哪些工作
+-指定数据库连接参数
+(指定驱动类、连接URL、用户名、密码)
+-指定要执行的SQL语句
+（规则：使用#{属性名}替代?位置）
+-指定SQL语句中?参数值
+（基本类型、对象类型、Map类型）
+-指定实体类（规则：属性名=字段名）
+
+insert into emp (eno,ename) values (?,?)
+
+Emp对象参数--》SQL（insert）
+
+insert into emp (eno,ename) 
+	values (#{eno},#{ename})
+
+#MyBatis体系结构
+##MyBatis开发包
+-mybatis.jar、(追加驱动包)
+##SqlMapConfig.xml（1个）
+-主配置文件，用于指定数据库连接参数
+##SqlMapper.xml（n个）
+-SQL定义文件，用于指定SQL操作
+##实体类
+-用于封装记录信息
+
+#MyBatis使用方法
+
+#MyBatis Mapper映射器
+Mapper映射器是一个接口。
+MyBatis提供了一组Mapper映射器编写规则,
+按规则编写可以自动生成Mapper接口实现。
+##SQL定义文件<mapper namespace="接口类型">
+##接口类型中方法定义规则
+-方法名=SQL定义的id属性;
+-参数类型=SQL定义的parameterType类型
+-返回类型=增删改可以用int或void;
+-返回类型=查询可以用resultType类型
+-或List<resultType类型>
+
+public class $Proxy4 implements EmpDao{
+   public List<Emp> findAll(){
+     return session.selectList("findAll");
+   }
+
+   public Emp findById(int id){
+      return session.selectOne(
+         "findById",id);
+   }
+}
+
+
+resultType装载规则：ResultSet列名=属性名
+表      --》结果集       --》实体对象
+字段名  --》ResultSet列名--》属性名
+admin_id--》id           --》id //可以装载
+admin_id--》admin_id     --》id //无法装载
+
+
+
+
+
+

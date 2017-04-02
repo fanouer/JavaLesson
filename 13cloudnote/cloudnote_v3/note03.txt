@@ -1,0 +1,33 @@
+#笔记本列表显示
+##发送Ajax请求
+时机:页面onload，$(function(...))
+请求参数:用户ID
+请求地址:/book/loadbooks.do
+
+##服务器端处理
+/book/loadbooks.do
+-->DispatcherServlet
+-->HandlerMapping
+-->LoadUserBooksController.execute
+-->BookService.loadUserBooks
+-->BookDao.findByUserId
+-->cn_notebook(查询)
+-->返回NoteResult-->转成JSON输出
+
+##Ajax回调处理
+success:解析返回的JSON数据data.
+  循环生成笔记本列表
+error:提示"加载用户笔记本异常"
+
+<li class="online">
+  <a >
+    <i class="fa fa-book" title="online" rel="tooltip-bottom"></i> 
+    默认笔记本
+  </a>
+</li>
+BookDao.findByUserId
+-->cn_notebook（查询）
+
+实体类：Book
+SQL文件：BookMapper.xml
+Mapper接口：BookDao

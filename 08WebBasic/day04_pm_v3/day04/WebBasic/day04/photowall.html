@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>照片墙</title>
+		<style>
+			/*先刷墙*/
+			body {
+				background-color: #088;
+			}
+			/*再摆照片*/
+			ul {
+				width: 780px;
+				margin: 20px auto;
+				/*border: 1px solid red;*/
+				/*去掉符号*/
+				list-style-type: none;
+			}
+			li {
+				width: 218px;
+				padding: 10px;
+				margin: 10px;
+				border: 1px solid #ccc;
+				float: left;
+				background-color: #fff;
+			}
+			p {
+				text-align: center;
+			}
+			
+			/*使用相对定位，实现照片抖动的效果*/
+			li:hover {
+				position: relative;
+				left: 2px;
+				top: -2px;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>
+				<img src="../images/01.jpg"/>
+				<p>白日依山尽</p>
+			</li>
+			<li>
+				<img src="../images/02.jpg"/>
+				<p>黄河入海流</p>
+			</li>
+			<li>
+				<img src="../images/03.jpg"/>
+				<p>欲穷千里目</p>
+			</li>
+			<li>
+				<img src="../images/04.jpg"/>
+				<p>更上一层楼</p>
+			</li>
+			<li>
+				<img src="../images/05.jpg"/>
+				<p>不敢高声语</p>
+			</li>
+			<li>
+				<img src="../images/06.jpg"/>
+				<p>恐惊天上人</p>
+			</li>
+		</ul>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

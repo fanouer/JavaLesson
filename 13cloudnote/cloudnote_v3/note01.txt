@@ -1,0 +1,151 @@
+#jQuery+Ajax+Servlet+JSON(json-lib.jar)
+#jQuery+Ajax+SpringMVC+JSON(jackson.jar)
+##JSP响应处理流程
+请求-->DispatcherServlet
+-->HandlerMapping
+-->Controller-->Service-->Dao-->db操作
+-->返回String或ModelAndView
+-->ViewResolver-->JSP-->生成HTML响应
+
+##JSON响应处理流程
+请求-->DispatcherServlet
+-->HandlerMapping
+-->Controller-->Service-->Dao-->db操作
+-->返回数据对象(使用@ResponseBody)
+-->调用jackson包-->生成JSON字符串响应
+
+public class MyController{
+  @ResponseBody
+  public Person execute(){
+      Person p = ....;
+      return p;
+  }
+
+}
+
+/loadcities.do
+-->DispatcherServlet
+-->HanlderMapping
+-->LoadCitiesController.execute
+-->返回List<City>
+-->调用jackson包-->生成JSON响应
+
+#项目简介
+##功能
+云笔记管理系统,提供笔记管理。
+用户管理：登录、注册、修改密码、退出
+笔记本管理：列表、创建、修改、删除
+笔记管理：创建、删除、修改、列表、查看
+分享和收藏管理：笔记分享、笔记收藏、
+       分享列表查看、收藏列表查看等
+回收站管理：查看删除列表、彻底删除、恢复
+活动管理：活动的查看、参加活动等
+
+##涉及技术
+Spring框架：MVC、IOC、AOP功能
+MyBatis框架
+jQuery
+Ajax
+
+所有请求全部采用Ajax处理
+所有界面采用HTML文件
+
+##数据库设计
+MySQL数据库
+
+SQL语句标准
+-select
+-insert
+-update
+-delete
+-create table
+-----区别-----
+Oracle:NUMBER、VARCHAR2
+MySQL:int,bigint,double,float,varchar
+Oracle:to_date,to_char,sysdate
+MySQL:now(),日期函数,数字函数,字符函数
+Oracle：按用户schema区域存储
+MySQL：按库存储
+-----导入数据库环境-----
+-show databases;//查看库列表
+-use 库名;//使用某个库
+-show tables;//查看库里表
+-desc 表名;//查看表结构
+create table emp(
+  eno int primary key,
+  ename varchar(20)
+)
+
+=======导入=========
+set names utf8;//设置客户端编码环境
+source sql文件位置;
+
+source /home/soft01/sql文件;
+
+##搭建项目环境cloudnote
+-添加spring,mybatis开发包
+ (mvc,ioc,aop,jackson,
+  mybatis,mybatis-spring,
+  dbcp,mysql驱动)
+-添加spring配置文件
+ spring-mvc.xml
+ spring-mybatis.xml
+-定义包层次结构
+ org.tedu.cloudnote.controller
+ org.tedu.cloudnote.controller.user
+ org.tedu.cloudnote.controller.book
+ org.tedu.cloudnote.controller.note
+ org.tedu.cloudnote.service
+ org.tedu.cloudnote.dao
+ org.tedu.cloudnote.entity
+ org.tedu.cloudnote.util
+ org.tedu.cloudnote.sql
+-WebRoot下结构
+ 
+##实现登录操作
+###发送Ajax请求
+-时机：登录按钮的click
+-提交数据：用户名和密码
+-提交地址：/user/login.do
+###服务器端处理
+/user/login.do
+-->DispatcherServlet
+-->HandlerMapping
+-->UserLoginController.execute
+-->UserService.checkLogin
+-->UserDao.findByName-->cn_user(查询)
+-->返回数据对象
+-->调用jackson将数据转成JSON字符串输出
+
+{
+  status:状态,
+  msg:消息,
+  data:数据
+}
+
+###Ajax回调处理
+成功：进入edit.html主界面
+失败：提示错误信息
+系统异常：alert("登录异常")
+
+
+
+
+
+
+
+
+
+
+
+      
+
+
+
+
+
+
+
+
+
+

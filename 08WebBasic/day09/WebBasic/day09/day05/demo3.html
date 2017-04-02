@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>阶乘</title>
+		<script>
+			function jc() {
+				//获取元素
+				var text = 
+					document.getElementById("num");
+				var span = 
+					document.getElementById("result");
+				//取文本框的值
+				var n = text.value;
+				//判断是否为数字
+				if(isNaN(n)) {
+					//非数字
+					span.innerHTML = "请输入数字";
+				} else {
+					//是数字
+					var sum = 1;
+					for(var i=n;i;i--) {
+						sum *= i;
+					}
+					span.innerHTML = sum;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p>n的阶乘=1*2*3*...*n</p>
+		<input type="text" id="num"/>
+		<input type="button" value="阶乘"
+			onclick="jc();"/>
+		<span id="result"></span>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

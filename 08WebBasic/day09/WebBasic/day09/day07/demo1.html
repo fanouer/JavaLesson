@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>BOM</title>
+		<script>
+			function toTmooc() {
+				var b = confirm("您确定要离开吗？");
+				if(b) {
+					//只有选择了确定，才跳转
+					location.href = "http://www.tmooc.cn";
+				}
+			}
+			
+			console.log("---screen---");
+			console.log(screen.width);
+			console.log(screen.height);
+			console.log(screen.availWidth);
+			console.log(screen.availHeight);
+			
+			console.log("---navigator---");
+			console.log(navigator.userAgent);
+		</script>
+	</head>
+	<body>
+		<p>
+			<a href="http://www.tmooc.cn">达内</a>
+			<input type="button" value="TARENA"
+				onclick="toTmooc();"/>
+			<input type="button" value="刷新"
+				onclick="location.reload();"/>
+		</p>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

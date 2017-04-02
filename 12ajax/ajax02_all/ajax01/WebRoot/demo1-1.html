@@ -1,0 +1,82 @@
+<html>
+  <head>
+    <title>Ajax绀轰緥+jQuery</title>
+    <meta charset="UTF-8">
+    <script type="text/javascript" 
+    	src="js/jquery-1.11.1.js">
+    </script>
+    <script type="text/javascript">
+    //閲囩敤$.get()鍑芥暟閲嶆瀯sendRequest1()
+    function sendRequest3(){
+    	$.get(
+    		"hello.do",
+    		function(data){//data鏄湇鍔″櫒杩斿洖鐨勬暟鎹�
+    			alert(data);
+    		},
+    		"text"
+    	  );
+    };
+    
+    function sendRequest1(){
+    	//鍙戦�Ajax璇锋眰
+    	$.ajax({
+    		type:"get",
+    		url:"hello.do",
+    		dataType:"text",
+    		success:function(data){
+    			//data灏辨槸鏈嶅姟鍣ㄨ繑鍥炵殑淇℃伅
+    			alert(data);
+    		}
+    	});
+    }
+    </script>
+    <script type="text/javascript">
+    //鍙戦�璇锋眰妫�祴鐢ㄦ埛鍚嶆槸鍚﹀彲鐢�
+    function sendRequest2(){
+    	//鑾峰彇璇锋眰鍙傛暟
+    	var name = document.getElementById(
+    			"username").value;
+    	var name_span = document.getElementById(
+    			"username_span");
+    	if(name=="")
+    	{
+    		name_span.innerHTML = "鐢ㄦ埛鍚嶄笉鑳戒负绌�;
+    	}else{
+    		//鐢╨oad鍙戦�Ajax璇锋眰
+    		$("#username_span").load(
+    				"check.do",{"name":name});
+    		//鐢╝jax鍙戦�Ajax璇锋眰
+    		/*
+    		$.ajax({
+    			type:"post",
+    			url:"check.do",
+    			data:{"name":name},
+    			dataType:"text",
+    			success:function(data){
+    				name_span.innerHTML = data;
+    			}
+    		});
+    		*/
+    		//鎻愮ず姝ｅ湪妫�祴
+    		name_span.innerHTML = "姝ｅ湪妫�祴...";
+    	}
+    	
+    };
+    </script>
+  </head>
+  <body>
+    <input type="button" id="btn1" 
+   value="鍙戦�Ajax璇锋眰" onclick="sendRequest1()">
+   <input type="button"
+   value="鍙戦�Ajax璇锋眰1" onclick="sendRequest3()">
+   <hr/>
+   鐢ㄦ埛鍚�<input type="text" id="username" 
+   	onblur="sendRequest2()">
+   <span id="username_span"></span>
+  </body>
+</html>
+
+
+
+
+

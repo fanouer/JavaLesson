@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>联动</title>
+		<script>
+			//模拟加载城市
+			function loadCities() {
+				return [
+					["杭州","宁波","温州"],
+					["南京","无锡","苏州"],
+					["厦门","福州","泉州"]
+				];
+			}
+			//页面加载时自动查询所有城市
+			var cities = loadCities();
+			//切换省份
+			function chg() {
+				//获取省份下拉选
+				var sel1 = 
+					document.getElementById("province");
+				//获取选中省份的序号
+				var pindex = sel1.value;
+				//获取该省份所对应的城市
+				var pcities = cities[pindex];
+				//获取城市下拉选
+				var sel2 = 
+					document.getElementById("city");
+				//删除下面旧的城市
+				sel2.innerHTML = 
+					"<option>请选择</option>";
+				/*
+				//获取所有的城市选项
+				var options = sel2.children;
+				//将这些旧的城市都删除
+				for(var i=options.length-1;i>0;i--) {
+					options[i].remove();
+				}
+				*/
+				
+				//添加新的城市
+				if(pcities) {
+					for(var i=0;i<pcities.length;i++) {
+						var opn = 
+							document.createElement("option");
+						opn.innerHTML = pcities[i];
+						sel2.appendChild(opn);
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		省份：
+		<select onchange="chg();" id="province">
+			<option value="">请选择</option>
+			<option value="0">浙江省</option>
+			<option value="1">江苏省</option>
+			<option value="2">福建省</option>
+		</select>
+		城市：
+		<select id="city">
+			<option>请选择</option>
+		</select>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

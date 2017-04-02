@@ -1,0 +1,45 @@
+<html>
+  <head>
+		<meta charset="UTF-8">
+		<script type="text/javascript">
+		//标准格式的JSON变量
+		//var obj1 = {"id":101,"name":"tom"};
+		//alert(obj1.id);
+		//alert(obj1.name);
+		//特殊1
+		//var obj2 = {"id":101,"name":"tom",
+		//		"friends":["马云","李彦宏","马化腾"]};
+		//alert(obj2.friends[0]);
+		//特殊2
+		//var obj3 = [{"id":101,"name":"tom"},
+		//		{"id":102,"name":"jack"}];
+		//alert(obj3[1].name);
+		//将JSON字符串转成JSON变量
+		var str = '{"id":101,"name":"tom"}';
+		//方法1 eval()函数
+		//var obj4 = eval("("+str+")");
+		//方法2 JSON.parse()函数
+		var obj4 = JSON.parse(str);
+		alert(obj4.id);
+		</script>
+  </head>
+  <body>
+    <select id="friends"></select>
+  </body>
+</html>
+<script type="text/javascript">
+<!--
+var obj3 = [{"id":101,"name":"tom"},
+		{"id":102,"name":"jack"}];
+//循环生成option
+var friends = document.getElementById("friends");
+for(var i=0;i<obj3.length;i++){
+	var id = obj3[i].id;//获取id值
+	var name = obj3[i].name;//获取name值
+	var opt = new Option(name,id);
+	friends.options[i] = opt;
+}
+//-->
+</script>
+
+

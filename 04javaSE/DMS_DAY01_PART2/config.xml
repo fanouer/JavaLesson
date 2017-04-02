@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<!-- unix系统日志文件名 -->
+	<logfile>wtmpx</logfile>
+	<!-- 保存解析后日志的文件名 -->
+	<textlogfile>log.txt</textlogfile>
+	<!-- 书签文件名 -->
+	<lastpositionfile>last-position.txt</lastpositionfile>
+	<!-- 每次解析日志的条目数 -->
+	<batch>10</batch>
+	<!-- 配对日志文件名 -->
+	<logrecfile>logrec.txt</logrecfile>
+	<!-- 未配对日志文件名 -->
+	<loginlogfile>login.txt</loginlogfile>
+	<!-- 服务端地址 -->
+	<serverhost>localhost</serverhost>
+	<!-- 服务端端口 -->
+	<serverport>8088</serverport>
+</config>
+
+
+
+
+
+
+
+

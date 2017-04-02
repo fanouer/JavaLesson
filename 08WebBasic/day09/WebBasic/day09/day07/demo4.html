@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>DOM</title>
+	</head>
+	<body>
+		<ol id="province">
+			<li>浙江省</li>
+			<li>江苏省</li>
+			<li>山东省</li>
+		</ol>
+		<ul id="city">
+			<li>北京</li>
+			<li id="sh" class="south">上海</li>
+			<li class="south">广州</li>
+			<li class="south">深圳</li>
+		</ul>
+		<p>
+			<input type="radio" name="sex"/>男
+			<input type="radio" name="sex"/>女
+		</p>
+		
+		<script>
+			console.log("---根据ID查询---");
+			var ul = document.getElementById("city");
+			console.log(ul);
+			
+			console.log("---根据标签名查询---");
+			//父节点.getElementsByTagName(标签名)
+			//在父节点下查找此标签名的子节点
+			var lis = document.getElementsByTagName("li");
+			console.log(lis);
+			lis = ul.getElementsByTagName("li");
+			console.log(lis);
+			
+			console.log("---根据name查询---");
+			//一般都是用在表单控件上
+			var radios = document.getElementsByName("sex");
+			console.log(radios);
+			
+			console.log("---根据class查询---");
+			lis = document.getElementsByClassName("south");
+			console.log(lis);
+			
+			console.log("---根据关系查询---");
+			//1.获取父亲
+			console.log(ul.parentNode);
+			//2.获取孩子
+			console.log(ul.childNodes);
+			console.log(ul.children);
+			//3.获取兄弟
+			var sh = document.getElementById("sh");
+			console.log(sh.previousElementSibling);
+			console.log(sh.nextElementSibling);
+			//万能的方式：节点.父亲.孩子[下标]
+			console.log(sh.parentNode.children[3]);
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

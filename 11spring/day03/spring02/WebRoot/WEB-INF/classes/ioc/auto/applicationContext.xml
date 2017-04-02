@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"  
+	xmlns:jee="http://www.springframework.org/schema/jee" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.2.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+	 
+	<bean id="wt" class="ioc.auto.Waiter"/>
+	<bean id="wt2" class="ioc.auto.Waiter"/>
+	<!-- 
+		1.默认情况下，容器不会自动装配。
+		2.autowire属性用来指定自动装配的规则，
+		有三个值:
+		byName 容器查询id为属性名的bean,
+			然后调用set方法来完成注入。
+			注：
+				a. 有无参构造器,有set方法。
+				b. 没有符合条件的bean,注入null。
+		byType 容器查找和属性类型一致的bean,
+			然后调用set方法来完成注入。
+			注：
+			   a. 有无参构造器,有set方法。 
+			   b. 没有符合条件的bean,注入null。
+			   c. 如果有多个符合条件的bean,会出错。
+	   constructor 容器查找和属性类型一致的bean,
+			然后调用构造器来完成注入。
+			注：
+				a. 要有有参构造器。
+				b. 没有符合条件的bean,注入null。
+				c.如果有多个符合条件的bean,不会出错。
+		自动装配要少用。
+	 -->
+	<!--   
+	<bean id="rest" class="ioc.auto.Restaurant"
+	autowire="byName"/>
+	-->
+	<!-- 
+	<bean id="rest" class="ioc.auto.Restaurant"
+	autowire="byType"/>
+	 -->
+	<bean id="rest" class="ioc.auto.Restaurant"
+	autowire="constructor"/> 
+	
+	
+	
+	
+	
+	
+	
+</beans>

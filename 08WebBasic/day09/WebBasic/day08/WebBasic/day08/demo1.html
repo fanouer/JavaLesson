@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>自定义对象</title>
+		<script>
+			//1.采用直接量的方式创建对象
+			function f1() {
+				//创建对象
+				var stu = {"name":"zs","age":23,
+					"work":function(){alert("我学Java");}};
+				//使用对象
+				alert(stu.name);
+				alert(stu.age);
+				stu.work();
+			}
+			//2.1采用js自带构造器创建对象
+			function f2() {
+				//创建对象
+				var teacher = new Object();
+				teacher.name = "苍老师";
+				teacher.age = 18;
+				teacher.work = function(){
+					alert("我教Java");
+				};
+				//使用对象
+				alert(teacher.name);
+				alert(teacher.age);
+				teacher.work();
+			}
+			//2.2采用自定义构造器创建对象
+			function Coder(name,age,work) {
+				this.name = name;
+				this.age = age;
+				this.work = work;
+			}
+			function f3() {
+				//创建对象
+				var coder = new Coder(
+					"ls",26,function(){alert("我写Java");});
+				//使用对象
+				alert(coder.name);
+				alert(coder.age);
+				coder.work();
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" value="直接量"
+			onclick="f1();"/>
+		<input type="button" value="自带构造器"
+			onclick="f2();"/>
+		<input type="button" value="自定义构造器"
+			onclick="f3();"/>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>jQuery的用法</title>
+		<!-- jQuery必须在自定义js前引入 -->
+		<script src="../js/jquery-1.11.1.js"></script>
+		<script>
+			function bigger() {
+				//获取原始字体大小(16px)
+				var size = $("p:first").css("font-size");
+				//去掉单位(16)
+				size = size.replace("px","");
+				//+1后，设置给所有的p
+				$("p").css("font-size", ++size+"px");
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" value="+"
+			onclick="bigger();"/>
+		<p>1.引入jQuery文件</p>
+		<p>2.使用选择器选择节点</p>
+		<p>3.调用jQuery API操作节点</p>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

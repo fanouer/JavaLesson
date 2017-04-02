@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <title>Ajax下拉列表</title>
+    <meta charset="UTF-8">
+    <script type="text/javascript">
+    function getXhr(){
+    	var xhr = null;
+    	if(window.XMLHttpRequest){//非IE浏览器
+    		xhr = new XMLHttpRequest();
+    	}else{//IE
+    		xhr = new ActiveXObject(
+    				"Microsoft.XMLHTTP");
+    	}
+    	return xhr;
+    };
+    
+    function sendRequest(){
+    	//发送Ajax请求
+    	var xhr = getXhr();
+    	xhr.open("get","loadcities.do",true);
+    	//指定回调处理函数
+    	xhr.onreadystatechange = function(){
+    		if(xhr.readyState==4 && xhr.status==200){
+    			//获取select元素
+    			var c1 = document.getElementById("cities");
+    			//"1:北京;2:上海;3:天津"
+    			var data = xhr.responseText;
+    			var optsData = data.split(";");
+    			for(var i=0;i<optsData.length;i++){
+    				//"1:北京"
+    				var optData = optsData[i];
+    			   //[1,北京]
+    			   var opt = optData.split(":");
+    			   //构建一个Option元素
+    			   var option = new Option(opt[1],opt[0]);
+    			   //添加到select中
+    			   c1.options[i] = option;
+    			}
+    		}
+    	}
+    	xhr.send(null);
+    }
+    </script>
+  </head>
+  <!-- 服务器端返回 "1:北京;2:上海;3:天津" -->
+  <body onload="sendRequest()">
+    城市：<select id="cities">
+    
+    	</select>
+  </body>
+</html>

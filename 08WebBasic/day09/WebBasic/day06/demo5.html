@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>电子表</title>
+		<style>
+			div {
+				border: 3px solid #ccc;
+				width: 200px;
+				font-size: 30px;
+				line-height: 40px;
+				height: 40px;
+				text-align: center;
+			}
+		</style>
+		<script>
+			var id = null;
+			function start() {
+				//若已启动就不要再次启动了
+				if(id) {
+					//id非空则表示已启动
+					return;
+				}
+				
+				id = setInterval(function(){
+					var now = new Date();
+					var time = now.toLocaleTimeString();
+					var div = document.getElementById("clock");
+					div.innerHTML = time;
+				}, 1000);
+				console.log(id);
+			}
+			function stop() {
+				//已启动才暂停
+				if(id) {
+					console.log(id);
+					clearInterval(id);
+					//已暂停，将id清空
+					id = null;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<input type="button" value="开始"
+				onclick="start();"/>
+			<input type="button" value="暂停"
+				onclick="stop();"/>
+		</p>
+		<div id="clock"></div>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

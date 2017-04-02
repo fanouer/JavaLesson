@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.tarena.oss.dao.AdminDAO">
+	<select id="findByCode" parameterType="string" 
+		resultType="com.tarena.oss.entity.Admin">
+	SELECT admin_id adminId,
+			 admin_code adminCode,
+			 password,
+			 name,
+			 telephone,
+			 email,
+			 enrolldate 
+	FROM admin_info_lhh
+	WHERE admin_code=#{code}
+	</select>
+
+</mapper>

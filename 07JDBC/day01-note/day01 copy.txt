@@ -1,0 +1,24 @@
+李洪鹤/lihh@tedu.cn
+
+#Java体系
+![](1-Java.png)
+
+#JDBC
+##什么是JDBC
+  是Sun推出的Java访问数据库的解决方案
+##JDBC的要点
+  1. 接口(1套)
+    由Sun提出的。
+  2. 实现类(n套)
+    由数据库厂商加以实现。
+##特点
+  只需要掌握接口的API
+![](2-JDBC.png)
+
+#JDBC的使用步骤
+1. 加载(注册)驱动
+2. 创建连接
+3. 创建Statement
+4. 执行SQL
+5. 关闭连接
+![](3-JDBCExecute.png)

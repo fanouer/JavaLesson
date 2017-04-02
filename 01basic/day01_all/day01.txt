@@ -1,0 +1,248 @@
+王克晶(WKJ)
+phone: 13581726261
+qq: 1945019382
+email: wangkj@tedu.cn
+
+碰到问题如何解决:
+1.找同桌
+2.找项目经理
+3.找讲师
+
+如何学好java:
+1.多想
+2.多练
+
+建议:
+1.当日事当日毕
+
+要求:
+1.课堂气氛活跃一些
+
+
+
+
+
+
+笔记:
+1.Linux:
+  1)开源的操作系统、免费
+    主要用于服务器系统
+    java主要用于服务器端开发
+  2)Linux与Windows目录结构的区别:
+    2.1)文件系统不同:
+          Windows:盘符  Linux:目录
+    2.2)外部设备映射不同:
+          Windows:盘符  Linux:挂载点(目录)
+    2.3)安全级别不同:
+          Windows:较低  Linux:较高
+      /:根目录，只有一个根
+      /home/soft01:主目录，具有最高权限
+  3)常用的命令:
+    3.1)pwd:显示当前工作目录
+    3.2)ls:查看当前工作目录的内容
+    3.3)cd:改变当前工作目录
+         绝对路径:相对于根目录的位置，以/开头
+	 相对路径:相对于当前目录的位置
+	   .:当前目录
+	   ..:上一级目录
+2.java开发环境:
+  1)java编译运行过程:
+     编译期:.java源文件，经过编译，生成.class字节码文件
+     运行期:JVM加载.class并运行.class
+    说明:
+      跨平台，一次编程到处使用
+  2)JVM:java虚拟机
+        加载.class并运行.class
+    JRE:java运行环境
+        除了包含JVM以外，还包含运行java程序所必须的环境
+        JRE=JVM+java系统类库
+    JDK:java开发工具包
+        除了包含JRE以外，还包含开发java程序所必须的命令工具
+        JDK=JRE+编译、运行命令工具
+    说明:
+      1)运行java程序的最小单元是JRE
+      2)开发java程序的最小单元是JDK
+  3)配置环境变量:-----暂时了解
+    3.1)JAVA_HOME:指向jdk的安装目录
+    3.2)CLASSPATH:表示类的搜索路径，一般简写为.
+    3.3)PATH:指向jdk下的bin目录
+3.eclipse
+
+
+
+
+课后作业:
+  第7题不用写
+
+
+
+
+
+
+
+
+
+
+
+Linux系统下，
+想运行某个程序，写完整路径就OK
+分三步:
+1.新建一个工程/项目--------小区名
+2.新建一个包---------------楼号+单元号
+3.新建一个类---------------房子
+
+
+JSD1601
+day01
+HelloWorld
+
+
+
+
+
+
+
+
+
+
+
+public class HelloWorld{
+  public static void main(String[] args){
+    System.out.println("helloWorld");
+  }
+}
+
+eclipse用java语言写的
+让大家用eclipse写java代码
+
+
+
+运行eclipse，最小JRE
+
+
+jdk
+eclipse
+
+
+
+
+
+
+
+
+
+
+
+
+
+PATH:/a/b;/c/d;/e/f;
+
+javac
+
+
+
+编译--javac命令
+运行--java命令
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+java编译运行过程:
+  .java文件，经过编译，生成.class字节码文件
+  JVM加载.class并运行.class(0和1)
+
+QQ:java语言
+  .java版的QQ，编译，生成.class
+  Windows的JVM--------运行在Windows系统上
+  Linux的JVM----------运行在Linux系统上
+  IOS的JVM------------运行在IOS系统上
+
+跨平台，一次编译到处运行
+
+
+C编译运行过程:
+  .c文件，经过编译，直接变为可执行程序(0和1)
+
+QQ:C语言
+ Windows版QQ--------运行在Windows系统上
+ Linux版QQ----------运行在Linux系统上
+ IOS版QQ------------运行在IOS系统上
+
+
+
+
+不同操作系统指令不同
+Windows:
+  你---01010101
+  好---10101010
+Linux:
+  你---11110000
+  好---00001111
+
+
+
+
+
+
+
+
+
+计算机分类:
+1.PC机:个人电脑
+2.服务器:处理大数据请求的高性能计算机
+3.智能终端:智能手机、IPAD、掌上电话.....
+4.嵌入式设备:除了上面3种以外带CPU的
+
+Linux:服务器、智能终端、嵌入式设备
+Windows:PC机
+
+java主要用于服务器端开发
+
+www.taobao.com
+www.jd.com
+
+
+
+Linux系统上-------装Office
+                  装植物大战僵尸
+		  装CS
+
+           -------不需要
+
+Linux系统需要的是快速的操作速度
+-------命令行
+
+
+
+假设当前目录在/a/b下:
+cd /c/d--------/c/d
+cd c/d---------/a/b/c/d
+
+假设当前目录在/m/n下:
+cd /c/d--------/c/d
+cd c/d---------/m/n/c/d
+
+
+
+/opt/eclipse-------绝对路径
+/usr/local/jdk-----相对路径
+
+
+
+
+
+
+
+
+

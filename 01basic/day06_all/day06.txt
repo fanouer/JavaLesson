@@ -1,0 +1,501 @@
+回顾:
+1.while:当...
+  do...while:直到...
+             1和3要素相同时首选
+  for:固定次数，应用率最高的
+2.嵌套循环:
+    循环中套循环，外层控制行，内层控制列
+    外层走一次，内层走所有次
+    层数越少越好
+    break跳出一层循环
+3.数组:
+    相同数据类型元素的集合
+    是一种数据类型(引用类型)
+    int[] arr = new int[4];
+    int[] arr = {1,4,5,6};
+    int[] arr = new int[]{1,4,5,6};
+    arr[0] = 5;
+    arr[arr.length-1] = 100;
+    System.out.println(arr[1]);
+    for(int i=0;i<arr.length;i++){
+      arr[i] = 100;
+    }
+    System.arraycopy(a,1,a1,0,4);
+    int[] a1 = Arrays.copyOf(a,6);
+    a = Arrays.copyOf(a,a.length+1);
+    Arrays.sort(arr);
+    冒泡:
+      4个数冒3轮
+      每轮都从第1个开始冒，
+        每一次都是和它下一个元素比
+      冒出来的不再参与比较了
+
+
+质数/素数:只能被1和它本身整除的数
+
+100%51/52/53/54/.../98/99----有可能得0吗?
+
+
+int num = 100;
+i<num--------2/3/4/../98/99
+i<=num/2-----2/3/4/../49/50
+
+Math.sqrt(100);
+
+
+2/3/4/5/6/7/8/9/10
+
+
+25的平方根5
+36的平方根6
+100的平方根10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+int num = 5;
+
+什么情况不是质数------只要有得0的
+什么情况是质数--------取余所有都不得0
+
+
+并非一次判断得到最终结果-----开关
+
+
+5是质数:
+  5%2/3/4-------------都不得0
+7是质数:
+  7%2/3/4/5/6---------都不得0
+8不是质数:
+  8%2/3/4/5/6/7-------有得0
+9不是质数:
+  9%2/3/4/5/6/7/8-----有得0
+
+
+
+
+a(){
+  存
+}
+b(){
+  取
+}
+c(){
+  转帐
+}
+
+张三------调a/b/c
+李四------调a
+王五------调b
+
+
+
+
+
+
+正课:
+1.方法:函数、过程
+  1)用于封装一段特定的逻辑功能
+  2)方法尽可能的独立(只干一件事)
+  3)方法可以被反复调用多次
+  4)避免代码重复，有利于代码的维护与扩展
+    有利于团队协作开发
+2.方法的定义:
+    修饰词 返回值类型 方法名(参数列表){
+      方法体
+    }
+    无返回值的方法，类型写为void
+    有返回值的方法，类型写为具体的类型即可
+3.方法的调用:
+  1)无返回值方法:
+      方法名(有参传参)
+  2)有返回值方法:
+      数据类型 变量 = 方法名(有参传参);
+
+
+
+
+
+
+
+
+
+
+
+语法基础-----6天时间
+
+吃药--------------不好吃，也得吃
+不能吃糖豆
+
+
+
+
+
+
+
+
+
+
+
+
+基本类型判断相等，用==
+引用类型判断相等，不能用==
+
+
+
+
+
+
+
+
+"exit"退出
+
+位置对5
+
+位置对5并且字符对5
+
+
+
+int a = scan.nextInt();
+double b = scan.nextDouble();
+
+
+String c = scan.next();
+char[] input = c.toCharArray();
+
+
+"ABC"
+input[0]='A'
+input[1]='B'
+input[2]='C'
+
+
+猜字符小游戏:
+一.设计数据结构:变量
+1)char[] chs;   //随机生成的字符数组
+2)char[] input; //用户输入的字符数组
+3)int[] result; //对比的结果
+4)int score;    //得分
+  int count;    //猜错的次数
+二.设计程序结构:方法
+1)主方法:
+  public static void main(String[] args){
+  }
+2)生成随机字符数组:
+  public static char[] generate(){
+    char[] chs = new char[5];
+    //
+    return chs;
+  }
+3)对比:随机字符数组与用户输入的字符数组
+  public static int[] check(char[] chs,char[] input){
+    int[] result = new int[2];
+    //
+    return result;
+  }
+三.设计算法:
+
+
+
+public static char[] generate(){
+  char[] chs = new char[5];
+
+  char[] letters = {'A','B','C',...,'Z'};
+  boolean[] flags = new boolean[26];
+  for(int i=0;i<chs.length;i++){
+    do{
+      int index = (int)(Math.random()*26);
+    }while(flags[index]==true);
+    chs[i] = letters[index];
+    flags[index] = true;
+  }
+
+  i=0 index=0  chs[0]='A' flags[0]=true 
+  i=1 index=25 chs[1]='Z' flags[25]=true
+  i=2 index=0/25/0/25/1 chs[2]='B' flags[1]=true
+  i=3 index=0/1/25/0/1/25/3
+  i=4
+
+
+
+
+
+
+  return chs;
+}
+i=0 index=0  chs[0]='A'
+i=1 index=25 chs[1]='Z'
+i=2 index=1  chs[2]='B'
+
+
+
+
+String[] ss = {"大王","小王",""};
+boolean[] flags = new boolean[ss.length];
+
+
+
+
+
+
+1)随机藏起来一个数----chs
+2)猜吧!
+  用户输入一个数------input
+  对比，得到对比结果，提示......
+
+
+
+
+
+
+
+
+
+
+
+
+
+i=0
+  j=0 chs0-input0
+  j=1 chs0-input1
+  j=2 chs0-input2
+  j=3 chs0-input3
+  j=4 chs0-input4
+i=1
+  j=0 chs1-input0
+  j=1 chs1-input1
+  j=2 chs1-input2
+  j=3 chs1-input3
+  j=4 chs1-input4
+位置对是在字符对的基础之上的-------
+
+public static int[] check(char[] chs,char[] input){
+  int[] result = new int[2]; //0,0，假设result[1]为字符对 result[0]为位置对
+  
+  for(int i=0;i<chs.length;i++){
+    for(int j=0;j<input.length;j++){
+      if(chs[i]==input[j]){ //字符对
+        result[1]++; //字符对个数增1
+        if(i==j){ //位置对
+	  result[0]++; //位置对个数增1
+	}
+	break;
+      }
+    }
+  }
+
+  return result;
+}
+
+
+
+
+
+
+
+
+
+
+
+Guessing
+
+
+
+
+
+
+
+
+
+一个比较独立的功能，不是一两句话能搞定的
+-------设计一个方法
+
+
+char[]
+char c1;
+char c2;
+..
+..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public static void main(String[] args){
+  say();
+  sayHi("zhangsan");
+  double a = getNum(); 输出a的值
+  int b = plus(5,6); 输出b的值
+}
+public static void say(){}
+public static void sayHi(String name){}
+public static double getNum(){
+  return 8.88;
+}
+public static int plus(int num1,int num2){
+  return num1+num2;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+MethodDemo
+
+
+
+方法可以有参也可以无参
+有参可以使用方法更灵活
+
+System.out.         println("helloWorld");
+System.             arraycopy(a,1,a1,0,4);
+Arrays.             sort(arr);
+double b = Math.    sqrt(25);
+int[] a1 = Arrays.  copyOf(a,6); //有参数
+
+
+int age = scan.     nextInt();
+double price = scan.nextDouble();
+double a = Math.    random(); //无参数
+
+
+Math.random(); //0到0.9999999.....
+Math.random(1,1000);
+Math.random(0,99);
+Math.random(20,50);
+
+Math.sqrt(25);
+Math.sqrt(100);
+Math.sqrt(36);
+Math.sqrt(81);
+
+
+
+
+
+
+
+
+
+
+
+方法可以有返回值，也可以没有返回值
+若没有返回值，则返回值类型写成void
+若有返回值，返回值类型写成具体的数据类型
+
+
+方法操作完之后，若还想用到其中的某个值----有返回值
+方法干完后，不需要某个数据----无返回值
+
+System.out.println("helloWorld");
+System.arraycopy(a,1,a1,0,4);
+Arrays.sort(arr); //无返回值方法
+
+int age = scan.nextInt();
+double price = scan.nextDouble();
+double a = Math.random();
+double b = Math.sqrt(25);
+int[] a1 = Arrays.copyOf(a,6); //有返回值方法
+
+
+
+
+
+
+
+
+
+
+
+
+
+main(){
+  
+}
+
+a(){
+}
+
+b(){
+}
+
+
+
+
+
+
+
+排序功能-----10个地方排序
+
+排序(){
+  6句话
+}
+
+
+
+
+
+
+
+
+
+
+
+main(){
+  存款---1
+  取款---1
+  转帐---1
+}
+存款(){
+  1000
+}
+取款(){
+  1000
+}
+转帐(){
+  2000
+}
+
+
+
+
+
+
+
+
+

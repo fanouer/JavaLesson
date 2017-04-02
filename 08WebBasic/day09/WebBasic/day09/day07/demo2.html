@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>DOM</title>
+	</head>
+	<body>
+		<h1>DOM操作</h1>
+		<p id="p1">1.读写节点</p>
+		<p id="p2">2.<u>查询</u>节点</p>
+		<p id="p3">3.<b>增删</b>节点</p>
+		<p>
+			<img src="../images/01.jpg" id="i1"/>
+		</p>
+		<p>
+			<a href="http://www.tmooc.cn" id="a1">达内</a>
+		</p>
+		
+		<!-- 
+			直接写的js在页面加载时直接调用，
+			由于浏览器加载页面是按照顺序加载，
+			因此将这些js放在元素的后面才能
+			获取到这些元素节点。
+		-->
+		<script>
+			console.log("---读写节点---");
+			//读取节点类型
+			var p1 = document.getElementById("p1");
+			console.log(p1.nodeName);
+			console.log(p1.nodeType);
+			//innerHTML：读写节点的内容(带标签)
+			var p2 = document.getElementById("p2");
+			console.log(p2.innerHTML);
+			p2.innerHTML = "2.<b>查询</b>节点";
+			//innerText：读写节点的内容(不带标签)
+			var p3 = document.getElementById("p3");
+			console.log(p3.innerText);
+			p3.innerText = "3.<u>增删</u>节点";
+			//读写属性(了解)
+			var img = document.getElementById("i1");
+			console.log(img.getAttribute("src"));
+			img.setAttribute("src","../images/02.jpg");
+			img.removeAttribute("src");
+			//读写属性(简单)
+			//读：节点.属性名
+			//写：节点.属性名=值;
+			//特殊(读写class)：节点.className
+			var a = document.getElementById("a1");
+			console.log(a.href);
+			a.href = "#";
+		</script>		
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

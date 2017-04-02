@@ -1,0 +1,215 @@
+/*1.对页面进行统一的设置*/
+/*星是通用选择器，可以选择一切*/
+* {
+	padding: 0;
+	margin: 0;
+}
+div {
+	border: 1px solid red;
+	margin: 0 auto;
+}
+
+/*2.给页面布局*/
+.logo {
+	width: 960px;
+	height: 61px;
+}
+.nav {
+	height: 91px;
+}
+.main {
+	height: 410px;
+	/*顶部预留出渐变条的空间*/
+	padding-top: 10px;
+}
+.copy {
+	width: 960px;
+	height: 50px;
+}
+.content {
+	width: 950px;
+	height: 390px;
+	border: 5px solid #8ac1db;
+}
+.content>div {
+	width: 910px;
+}
+.btn, .page {
+	height: 40px;
+}
+.data {
+	height: 310px;
+}
+
+/*3.设置背景*/
+body {
+	background-color: #0EA8D8;
+}
+.logo {
+	background-image: 
+		url(../img/top_bg.png);
+}
+.nav {
+	background-color: #0488BB;
+}
+.main {
+	background: 
+		url(../img/content_bg.png)
+		repeat-x top;
+}
+.content {
+	background-color: #e8f3f8;
+}
+
+/*4.设置文本样式*/
+body {
+	font-family: 
+		"微软雅黑","文泉驿正黑","黑体";
+	font-size: 14px;
+}
+.logo {
+	text-align: right;
+	line-height: 61px;
+}
+.logo>a {
+	margin-right: 40px;
+	color: #fff;
+	text-decoration: none;
+}
+.logo>a:hover {
+	font-weight: bold;
+}
+.copy>p {
+	text-align: center;
+	color: #fff;
+	line-height: 25px;
+}
+
+/*5.设置表格样式*/
+.data table {
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+	width: 100%;
+}
+.data table td {
+	border: 1px solid #ccc;
+	text-align: center;
+}
+.data thead td {
+	background-color: #fbedce;
+	font-weight: bold;
+	line-height: 40px;
+}
+.data tbody tr {
+	background-color: #fff;
+	line-height: 32px;
+}
+.data tbody tr:hover {
+	background-color: #f7f9fd;
+}
+.modify {
+	padding-left: 15px;
+	background:
+		url(../img/modification.png)
+		no-repeat left;
+	border: 0;
+	/*鼠标设置为手型*/
+	cursor: pointer;
+}
+.delete {
+	padding-left: 15px;
+	background:
+		url(../img/delete.png)
+		no-repeat left;
+	border: 0;
+	/*鼠标设置为手型*/
+	cursor: pointer;
+}
+
+/*6.定位*/
+.logo img {
+	float: left;
+}
+.content {
+	/*便于子元素绝对定位*/
+	position: relative;
+}
+.content>.msg {
+	position: absolute;
+	left: 200px;
+	top: 100px;
+	width: 500px;
+	height: 80px;
+	border: 1px solid #F68A8A;
+	background: 
+		#FDECEC
+		url(../img/ok.png)
+		no-repeat
+		10px;
+}
+.msg img {
+	float: right;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+.msg p {
+	margin-left: 40px;
+	line-height: 80px;
+}
+.msg img:hover {
+	cursor: pointer;
+}
+
+/*7.导航栏*/
+.nav ul {
+	border: 1px solid yellow;
+	width: 960px;
+	height: 91px;
+	margin: 0 auto;
+	list-style-type: none;
+}
+.nav li {
+	border: 1px solid red;
+	width: 68px;
+	height: 77px;
+	margin: 7px 14px;
+	float: left;
+}
+.nav .index {
+	background-image: 
+		url(../img/index_out.png);
+}
+.nav .index:hover {
+	background-image: 
+		url(../img/index_on.png);
+	cursor: pointer;
+}
+.nav .role {
+	background-image: 
+		url(../img/role_out.png);
+}
+.nav .role:hover {
+	background-image: 
+		url(../img/role_on.png);
+	cursor: pointer;
+}
+
+/*收尾*/
+.nav ul, .nav li {
+	border: 0;
+}
+div {
+	border: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+

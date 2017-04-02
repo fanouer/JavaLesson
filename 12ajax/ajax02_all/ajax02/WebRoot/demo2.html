@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>Ajax下拉列表</title>
+    <meta charset="UTF-8">
+    <script type="text/javascript">
+    function getXhr(){
+    	var xhr = null;
+    	if(window.XMLHttpRequest){//非IE浏览器
+    		xhr = new XMLHttpRequest();
+    	}else{//IE
+    		xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    	}
+    	return xhr;
+    };
+    //加载城市信息
+    function sendRequest(){
+    	//发送Ajax请求
+    	var xhr = getXhr();
+    	xhr.open("get","loadcities.do",true);
+    	//指定回调处理
+    	xhr.onreadystatechange = function(){
+    		if(xhr.readyState==4&&xhr.status==200){
+    			var s = document.getElementById("cities");
+    			//获取服务器返回的JSON字符串
+    			var data = xhr.responseText;
+    			//转换成JSON变量
+    			var cities = JSON.parse(data);
+    			//循环解析cities,生成Option
+    			for(var i=0;i<cities.length;i++){
+    				var id = cities[i].id;
+    				var name = cities[i].name;
+    				var opt = new Option(name,id);
+    				//将option添加到select中
+    				s.options[i] = opt;
+    			}
+    		}
+    	};
+    	xhr.send(null);
+    }
+    
+	</script>
+  </head>
+  <!-- 服务器端返回 JSON数据 -->
+  <body onload="sendRequest()">
+    城市：<select id="cities">
+    	</select>
+  </body>
+</html>

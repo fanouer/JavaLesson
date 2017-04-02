@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>内置对象</title>
+		<script>
+			console.log("---String---");
+			var s1 = "JavaScript很像Java";
+			console.log(s1.charCodeAt(8));
+			console.log(s1.indexOf("Java"));
+			console.log(s1.lastIndexOf("Java"));
+			//返回新字符串，并不影响原来的字符串。
+			console.log(s1.substring(4,10));
+			console.log(s1.replace("Java","爪哇"));
+			console.log(s1.split(""));
+			
+			console.log("---Number---");
+			var n = 3.1415926;
+			console.log(n.toFixed(3));
+			
+			console.log("---Array---");
+			//js中的数组也具备集合的API；
+			//js中的数组都是Object数组。
+			var a1 = ["hi",20,false];
+			console.log(a1[0]);
+			//无论采用哪种方式创建的数组，
+			//其本质都一样都是Array对象。
+			var a2 = new Array();
+			a2.push("hello");
+			a2.push(30);
+			a2.push(true);
+			console.log(a2[1]);
+			//元素为数组的数组是二维数组
+			var a3 = [
+				["张三",20,3000.0],
+				["李四",25,4000.0],
+				["王五",30,5000.0]
+			];
+			console.log(a3[0][2]);
+			//数组倒转：改变原数组
+			var arr = [6,9,1,7,3,12,5];
+			arr.reverse();
+			console.log(arr);
+			//数组排序
+			arr.sort(function(a,b){return a-b;});
+			console.log(arr);
+			
+			console.log("---Math---");
+			console.log(Math.PI);
+			console.log(Math.round(3.56));
+			
+			console.log("---Date---");
+			var now = new Date();
+			console.log(now);
+			var date = 
+				new Date("2016/03/01 12:12:12");
+			console.log(date);
+			console.log(date.toLocaleDateString());
+			console.log(date.toLocaleTimeString());
+			console.log(date.getFullYear());
+			console.log(date.getMonth());
+			console.log(date.getDate());
+		</script>
+	</head>
+	<body>
+		<h1>以下对象比较简单</h1>
+		<p>String</p>
+		<p>Number</p>
+		<p>Boolean</p>
+		<p>Array</p>
+		<p>Math</p>
+		<h1>以下对象略微麻烦</h1>
+		<p>Date</p>
+		<p>RegExp</p>
+		<p>Function</p>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>BOM</title>
+		<script>
+			//调用window的属性和方法时，
+			//可以省略window。
+			console.log("---对话框---");
+			//1.弹出框
+			//alert("你好.");
+			//2.确认框
+			//var a = confirm("你吃了吗？");
+			//console.log(a);
+			//3.反馈框
+			//var b = prompt("你吃的什么？");
+			//console.log(b);
+			console.log("---定时器---");
+			//1.周期性定时器：
+			//setInterval：启动定时器，生成ID。
+			//clearInterval：通过ID停止定时器。
+			var index = 1;
+			var id1 = setInterval(function(){
+				//在此处写每次循环要做的事情
+				console.log(index++);
+				if(index==5) {
+					clearInterval(id1);
+				}
+			}, 1000);
+			//2.一次性定时器：
+			//延迟n毫秒，调用此函数。
+			//setTimeout：启动定时器，生成ID。
+			//clearTimeout：根据ID停止定时器。
+			//该定时器在执行一次后会自动停止，
+			//在未执行前可以通过clearTimeout手动停止。
+			//可以把定时器看做是一个线程。
+			var id2 = setTimeout(function(){
+				//由定时器(支线程)3S后执行
+				console.log("你好");
+			}, 3000);
+			//由js(主线程)立刻执行
+			//在真实业务中往往通过按钮调用停止代码
+			clearTimeout(id2);
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

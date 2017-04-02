@@ -1,0 +1,38 @@
+#jQuery+Ajax+Servlet+JSON(json-lib.jar)
+#jQuery+Ajax+SpringMVC+JSON(jackson.jar)
+##JSP响应处理流程
+请求-->DispatcherServlet
+-->HandlerMapping
+-->Controller-->Service-->Dao-->db操作
+-->返回String或ModelAndView
+-->ViewResolver-->JSP-->生成HTML响应
+
+##JSON响应处理流程
+请求-->DispatcherServlet
+-->HandlerMapping
+-->Controller-->Service-->Dao-->db操作
+-->返回数据对象(使用@ResponseBody)
+-->调用jackson包-->生成JSON字符串响应
+
+public class MyController{
+  @ResponseBody
+  public Person execute(){
+      Person p = ....;
+      return p;
+  }
+
+}
+
+/loadcities.do
+-->DispatcherServlet
+-->HanlderMapping
+-->LoadCitiesController.execute
+-->返回List<City>
+-->调用jackson包-->生成JSON响应
+
+
+
+
+
+
+

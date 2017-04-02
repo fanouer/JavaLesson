@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>jQuery对象</title>
+		<script src="../js/jquery-1.11.1.js"></script>
+		<script>
+			function print() {
+				var $ps = $("p"); //jQuery对象
+				for(var i=0;i<$ps.length;i++) {
+					var p = $ps[i]; //DOM对象
+					alert(p.innerHTML);
+				}
+			}
+			//传入的this是DOM对象
+			function chg(img) {
+				console.log($(img).width());
+				if($(img).width()=="250") {
+					$(img).width("218px").height("218px");
+				} else {
+					$(img).width("250px").height("250px");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" value="打印"
+			onclick="print();"/>
+		<p>1.jQuery对象就是DOM数组</p>
+		<p>2.jQuery对象才能调用jQuery API</p>
+		<p>3.DOM对象只能调用DOM API</p>
+		<p>4.jQuery选择器选中的就是jQuery对象</p>
+		<div>
+			<img src="../images/01.jpg"
+				onclick="chg(this);"/>
+			<img src="../images/02.jpg"
+				onclick="chg(this);"/>
+			<img src="../images/03.jpg"
+				onclick="chg(this);"/>
+		</div>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
